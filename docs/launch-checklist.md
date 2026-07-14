@@ -1,0 +1,40 @@
+# PaintLink — Launch checklist
+
+Build-complete → live. Work through in order.
+
+## Before launch
+
+- [ ] **Replace placeholder testimonials** — `src/content/testimonials.ts` (marked with
+      "Placeholder"). Get 4–6 real reviews from Shane.
+- [x] **Add real job photos** — done. Shane's photos are optimised in `public/gallery/` and
+      curated in `src/content/gallery.ts` (singles + before/after pairs). To add more later,
+      drop an optimised image in `public/gallery/` and add an entry there. A few unused
+      extras (interior-3..6, exterior-1/4, paint-stripping-2..4, roof-2, villa-exterior-1)
+      are already in the folder for rotation.
+      Note: suburb captions are only set where known (St Marys Bay) — ask Shane where the
+      other jobs were and add `location` fields for stronger local SEO.
+- [ ] **Quote form backend** — follow `docs/form-setup.md`, set `QUOTE_WEBHOOK_URL` in the
+      hosting environment, then send a test enquiry end-to-end.
+- [ ] **Confirm business details with Shane** — hours (`src/content/site.ts`, currently
+      Mon–Sat 7:30–5:30 as a sensible default), and whether he wants a street address shown
+      (schema currently lists Henderson locality only).
+- [ ] **Social links** — if Facebook/Instagram pages are set up for the launch package, add
+      `sameAs` links in `src/lib/schema.ts` and icons in the footer.
+
+## Deploy
+
+- [ ] Push to a Git repo, connect to Vercel (or Netlify) — zero-config Next.js deploy.
+- [ ] Add `QUOTE_WEBHOOK_URL` env var in hosting dashboard.
+- [ ] Point `paintlink.co.nz` DNS at the host; verify HTTPS + www→apex redirect.
+- [ ] Check `https://paintlink.co.nz/sitemap.xml` and `/robots.txt` resolve.
+
+## After launch (proposal commitments)
+
+- [ ] Google Search Console — verify domain, submit sitemap, request indexing of key pages.
+- [ ] Confirm indexing of home + service + location pages after a few days.
+- [ ] Google Business Profile (if add-on purchased) — create, link to site, categories:
+      Painter / House Painter / Commercial Painter; service areas West Auckland primary.
+- [ ] Test click-to-call on a real phone, and form submission from mobile.
+- [ ] Run Lighthouse on home + one service page (target 90+ performance/SEO).
+- [ ] Handover session with Shane — how enquiries arrive, how to send photos for updates,
+      review-collection routine.
