@@ -125,8 +125,8 @@ export default function VillaPage() {
           </div>
           <p className="mt-3 text-sm text-navy-dark/60">
             Recent villa work, including a full exterior restoration in St Marys Bay —{" "}
-            <Link href="/gallery" className="font-semibold text-brand hover:underline">
-              see more in the gallery
+            <Link href="/projects" className="font-semibold text-brand hover:underline">
+              see the full projects
             </Link>
             .
           </p>
@@ -149,11 +149,11 @@ export default function VillaPage() {
           </div>
         </section>
 
-        <section className="mt-14 rounded-2xl bg-navy p-8 text-white sm:p-10">
-          <h2 className="text-2xl font-extrabold tracking-tight">
+        <section className="mt-14 rounded-2xl border border-brand/20 bg-gradient-to-br from-brand-50 to-brand-100/60 p-8 sm:p-10">
+          <h2 className="text-2xl font-extrabold tracking-tight text-navy">
             Lead paint — the part you can’t skip
           </h2>
-          <p className="mt-4 max-w-3xl leading-relaxed text-white/80">
+          <p className="mt-4 max-w-3xl leading-relaxed text-navy-dark/80">
             Nearly every villa and bungalow in Auckland carries lead-based paint in its older
             layers. Dry-sanding it carelessly spreads contaminated dust across your property
             and your neighbours’. We follow safe lead practices on every character home as
@@ -162,7 +162,7 @@ export default function VillaPage() {
           </p>
           <Link
             href="/services/paint-stripping-removal"
-            className="mt-6 inline-block font-bold text-brand-200 hover:text-white"
+            className="mt-6 inline-block font-bold text-brand hover:underline"
           >
             More about paint stripping &amp; removal →
           </Link>

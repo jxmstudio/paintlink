@@ -10,7 +10,7 @@ const nav = [
   { href: "/services", label: "Services" },
   { href: "/villa-character-painting", label: "Villas & Character" },
   { href: "/areas", label: "Areas" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/projects", label: "Projects" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

@@ -14,19 +14,19 @@ export function PageHero({
   crumbs?: Crumb[];
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-brand-dark text-white">
+    <section className="relative overflow-hidden border-b border-navy/10 bg-gradient-to-br from-white via-brand-50/40 to-brand-50">
       <div
         aria-hidden="true"
-        className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand/25 blur-3xl"
+        className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand-100/70 blur-3xl"
       />
       <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
         {crumbs && crumbs.length > 0 && (
           <>
             <JsonLd data={breadcrumbSchema([{ name: "Home", href: "" }, ...crumbs])} />
-            <nav aria-label="Breadcrumb" className="mb-4 text-sm text-white/60">
+            <nav aria-label="Breadcrumb" className="mb-4 text-sm text-navy-dark/55">
               <ol className="flex flex-wrap items-center gap-1.5">
                 <li>
-                  <Link href="/" className="hover:text-white">
+                  <Link href="/" className="hover:text-brand">
                     Home
                   </Link>
                 </li>
@@ -34,9 +34,9 @@ export function PageHero({
                   <li key={c.href} className="flex items-center gap-1.5">
                     <span aria-hidden="true">/</span>
                     {i === crumbs.length - 1 ? (
-                      <span className="text-white/85">{c.name}</span>
+                      <span className="font-semibold text-navy-dark/75">{c.name}</span>
                     ) : (
-                      <Link href={c.href} className="hover:text-white">
+                      <Link href={c.href} className="hover:text-brand">
                         {c.name}
                       </Link>
                     )}
@@ -46,11 +46,11 @@ export function PageHero({
             </nav>
           </>
         )}
-        <h1 className="max-w-3xl text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+        <h1 className="max-w-3xl text-3xl font-extrabold tracking-tight text-navy sm:text-4xl lg:text-5xl">
           {title}
         </h1>
         {intro && (
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/80">{intro}</p>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-navy-dark/75">{intro}</p>
         )}
       </div>
     </section>

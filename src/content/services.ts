@@ -194,6 +194,11 @@ export const services: Service[] = [
     metaDescription:
       "Commercial painting across Auckland — offices, retail, warehouses, body corporate and more. After-hours work, clear programmes and minimal disruption. Free quotes.",
     h1: "Commercial Painting in Auckland",
+    // STAND-IN photo — swap for a real commercial job shot when Shane sends one.
+    image: {
+      src: "/gallery/exterior-3.jpg",
+      alt: "Contemporary building exterior repainted by PaintLink",
+    },
     blurb:
       "Offices, retail, warehouses and body corporate work — on programme, on budget, minimal disruption.",
     intro: [
@@ -311,6 +316,11 @@ export const services: Service[] = [
     metaDescription:
       "Deck staining, fence painting and timber protection across West & Central Auckland. Wash, prep, and the right stain or paint system for outdoor timber. Free quotes.",
     h1: "Deck & Fence Painting and Staining in Auckland",
+    // STAND-IN photo — swap for a real deck/fence shot when Shane sends one.
+    image: {
+      src: "/gallery/cedar-staining-2.jpg",
+      alt: "Freshly stained timber boards with a rich, even finish",
+    },
     blurb:
       "Outdoor timber washed, prepped and protected — stains and paints that stand up to sun and rain.",
     intro: [
@@ -488,6 +498,11 @@ export const services: Service[] = [
     metaDescription:
       "Fast, tidy rental property painting across Auckland for landlords and property managers. Between-tenancy turnarounds, Healthy Homes friendly, fair fixed pricing.",
     h1: "Rental Property Painting in Auckland",
+    // STAND-IN photo — swap for a real rental turnaround shot when Shane sends one.
+    image: {
+      src: "/gallery/interior-5.jpg",
+      alt: "Freshly repainted hallway in warm neutrals with polished timber floors",
+    },
     blurb:
       "Fast between-tenancy turnarounds for landlords and property managers — tidy, priced fairly, done on time.",
     intro: [
@@ -543,6 +558,11 @@ export const services: Service[] = [
     metaDescription:
       "House washing, soft washing and waterblasting across West & Central Auckland. Cladding, roofs, driveways, decks and fences cleaned safely. Free quotes.",
     h1: "House Washing & Waterblasting in Auckland",
+    // STAND-IN photo — swap for a real washing/waterblasting shot when Shane sends one.
+    image: {
+      src: "/gallery/exterior-1.jpg",
+      alt: "Two-storey home exterior during preparation and cleaning",
+    },
     blurb:
       "Soft washing for cladding, waterblasting for concrete — mould, moss and grime gone safely.",
     intro: [

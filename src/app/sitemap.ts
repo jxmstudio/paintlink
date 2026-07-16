@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/villa-character-painting", priority: 0.9 },
     { path: "/areas", priority: 0.8 },
     { path: "/about", priority: 0.6 },
-    { path: "/gallery", priority: 0.6 },
+    { path: "/projects", priority: 0.7 },
     { path: "/testimonials", priority: 0.5 },
     { path: "/contact", priority: 0.8 },
   ];

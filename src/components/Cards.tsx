@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Location, Service } from "@/content/types";
 
@@ -5,18 +6,28 @@ export function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group flex flex-col rounded-xl border border-navy/10 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-md"
+      className="group flex flex-col overflow-hidden rounded-xl border border-navy/10 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-md"
     >
-      <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand">
-        <RollerIcon className="h-6 w-6" />
-      </span>
-      <h3 className="mt-4 text-lg font-bold text-navy group-hover:text-brand-dark">
-        {service.name}
-      </h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-dark/70">{service.blurb}</p>
-      <span className="mt-4 text-sm font-bold text-brand group-hover:underline">
-        Learn more →
-      </span>
+      {service.image && (
+        <div className="relative aspect-[16/10] w-full overflow-hidden">
+          <Image
+            src={service.image.src}
+            alt={service.image.alt}
+            fill
+            sizes="(min-width: 1024px) 22rem, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+          />
+        </div>
+      )}
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="text-lg font-bold text-navy group-hover:text-brand-dark">
+          {service.name}
+        </h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-dark/70">{service.blurb}</p>
+        <span className="mt-4 text-sm font-bold text-brand group-hover:underline">
+          Learn more →
+        </span>
+      </div>
     </Link>
   );
 }

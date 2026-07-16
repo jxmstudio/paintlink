@@ -75,7 +75,7 @@ export function Footer() {
           <h2 className="text-sm font-bold uppercase tracking-wider text-brand-200">PaintLink</h2>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link href="/about" className="text-white/75 hover:text-white">About Us</Link></li>
-            <li><Link href="/gallery" className="text-white/75 hover:text-white">Gallery</Link></li>
+            <li><Link href="/projects" className="text-white/75 hover:text-white">Recent Projects</Link></li>
             <li><Link href="/testimonials" className="text-white/75 hover:text-white">Testimonials</Link></li>
             <li><Link href="/contact" className="text-white/75 hover:text-white">Get a Free Quote</Link></li>
           </ul>

@@ -5,7 +5,6 @@ import { site, yearsInBusiness } from "@/content/site";
 import { services } from "@/content/services";
 import { locationsByRegion } from "@/content/locations";
 import { testimonials } from "@/content/testimonials";
-import { ShaderBackdrop } from "@/components/ShaderBackdrop";
 import { ServiceCard, AreaCard, CheckIcon } from "@/components/Cards";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { CtaSection } from "@/components/CtaSection";
@@ -43,50 +42,70 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-dark text-white">
-        <ShaderBackdrop />
+      {/* Hero — white, photo-led */}
+      <section className="relative overflow-hidden border-b border-navy/10 bg-white">
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-navy-dark/85 via-navy-dark/55 to-navy-dark/20"
+          className="absolute -left-40 -top-40 h-[28rem] w-[28rem] rounded-full bg-brand-50 blur-3xl"
         />
-        <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:py-32">
-          <p className="text-sm font-bold uppercase tracking-widest text-brand-200">
-            West &amp; Central Auckland Painters
-          </p>
-          <h1 className="mt-4 max-w-2xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Quality painting, <span className="text-brand-200">done properly.</span>
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/85">
-            Interior, exterior, roof and commercial painting across Auckland — from villa
-            restorations in Grey Lynn to family homes in Henderson. Painting since{" "}
-            {site.establishedYear}, and proud of every finish.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/contact"
-              className="rounded-lg bg-brand px-7 py-4 text-center text-base font-bold text-white shadow-lg transition-colors hover:bg-brand-dark"
-            >
-              Get a Free Quote
-            </Link>
-            <a
-              href={site.phoneHref}
-              className="flex items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/5 px-7 py-4 text-base font-bold text-white backdrop-blur transition-colors hover:bg-white/15"
-            >
-              <PhoneIcon className="h-5 w-5" />
-              {site.phone}
-            </a>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-24">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-widest text-brand">
+              West &amp; Central Auckland Painters
+            </p>
+            <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-navy sm:text-5xl lg:text-6xl">
+              Quality painting, <span className="text-brand">done properly.</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-navy-dark/75">
+              Interior, exterior, roof and commercial painting across Auckland — from villa
+              restorations in Grey Lynn to family homes in Henderson. Painting since{" "}
+              {site.establishedYear}, and proud of every finish.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className="rounded-lg bg-brand px-7 py-4 text-center text-base font-bold text-white shadow-md transition-colors hover:bg-brand-dark"
+              >
+                Get a Free Quote
+              </Link>
+              <a
+                href={site.phoneHref}
+                className="flex items-center justify-center gap-2 rounded-lg border border-navy/25 px-7 py-4 text-base font-bold text-navy transition-colors hover:border-brand hover:text-brand"
+              >
+                <PhoneIcon className="h-5 w-5" />
+                {site.phone}
+              </a>
+            </div>
+            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-navy-dark/70">
+              {["Free quotes", "Fully insured", "Interior & exterior", "All of Auckland"].map(
+                (chip) => (
+                  <li key={chip} className="flex items-center gap-2">
+                    <CheckIcon className="h-4 w-4 text-brand" />
+                    {chip}
+                  </li>
+                )
+              )}
+            </ul>
           </div>
-          <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-white/75">
-            {["Free quotes", "Fully insured", "Interior & exterior", "All of Auckland"].map(
-              (chip) => (
-                <li key={chip} className="flex items-center gap-2">
-                  <CheckIcon className="h-4 w-4 text-brand-200" />
-                  {chip}
-                </li>
-              )
-            )}
-          </ul>
+
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-navy/10 shadow-xl">
+              <Image
+                src="/gallery/st-marys-bay-after.jpg"
+                alt="Two-storey villa in St Marys Bay after a full exterior repaint by PaintLink"
+                fill
+                priority
+                sizes="(min-width: 1024px) 28rem, (min-width: 640px) 28rem, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-5 -left-5 rounded-xl border border-navy/10 bg-white px-5 py-4 shadow-lg">
+              <p className="text-2xl font-extrabold text-brand">{yearsInBusiness()}+ years</p>
+              <p className="text-sm font-semibold text-navy-dark/70">
+                painting Auckland homes
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -109,16 +128,16 @@ export default function HomePage() {
       </section>
 
       {/* Villa & character feature */}
-      <section className="bg-navy text-white">
+      <section className="border-y border-navy/10 bg-brand-50/60">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-20">
           <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-brand-200">
+            <p className="text-sm font-bold uppercase tracking-widest text-brand">
               Central Auckland Specialists
             </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight">
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-navy">
               Villa &amp; character home painting
             </h2>
-            <p className="mt-4 leading-relaxed text-white/80">
+            <p className="mt-4 leading-relaxed text-navy-dark/75">
               Grey Lynn, Ponsonby, Mt Eden, Westmere, Herne Bay — Auckland’s villa belt is full
               of hundred-year-old homes that deserve painters who understand them. Heritage
               detail, sash windows, lead-safe practices and colour schemes that suit the era:
@@ -140,9 +159,9 @@ export default function HomePage() {
             ].map((item) => (
               <li
                 key={item}
-                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-5 py-4 font-semibold"
+                className="flex items-center gap-3 rounded-xl border border-navy/10 bg-white px-5 py-4 font-semibold text-navy shadow-sm"
               >
-                <CheckIcon className="h-5 w-5 shrink-0 text-brand-200" />
+                <CheckIcon className="h-5 w-5 shrink-0 text-brand" />
                 {item}
               </li>
             ))}
@@ -168,24 +187,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Recent work */}
-      <section className="bg-navy-dark">
+      {/* Recent projects */}
+      <section className="border-y border-navy/10 bg-brand-50/40">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-xl">
-              <h2 className="text-3xl font-extrabold tracking-tight text-white">
-                Recent work
+              <h2 className="text-3xl font-extrabold tracking-tight text-navy">
+                Recent projects
               </h2>
-              <p className="mt-3 text-white/70">
+              <p className="mt-3 text-navy-dark/70">
                 Real jobs, no stock photos — villas, roofs, cedar and interiors across
                 Auckland.
               </p>
             </div>
             <Link
-              href="/gallery"
+              href="/projects"
               className="rounded-lg bg-brand px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-dark"
             >
-              View the Gallery →
+              View Recent Projects →
             </Link>
           </div>
           <div className="mt-10 grid gap-4 grid-cols-2 lg:grid-cols-4">
@@ -213,8 +232,8 @@ export default function HomePage() {
             ].map((photo) => (
               <Link
                 key={photo.src}
-                href="/gallery"
-                className="group relative aspect-[4/5] overflow-hidden rounded-xl"
+                href="/projects"
+                className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-navy/10 shadow-sm"
               >
                 <Image
                   src={photo.src}
@@ -223,7 +242,7 @@ export default function HomePage() {
                   sizes="(min-width: 1024px) 25vw, 50vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-dark/90 to-transparent px-4 pb-3 pt-10 text-sm font-bold text-white">
+                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-dark/85 to-transparent px-4 pb-3 pt-10 text-sm font-bold text-white">
                   {photo.label}
                 </span>
               </Link>
@@ -233,42 +252,41 @@ export default function HomePage() {
       </section>
 
       {/* Areas */}
-      <section className="bg-brand-50/60">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl font-extrabold tracking-tight text-navy">Areas we cover</h2>
-            <p className="mt-3 text-navy-dark/70">
-              {site.serviceAreaSummary} If your suburb isn’t listed, call us anyway — we go
-              wherever the work is.
-            </p>
-          </div>
-          <div className="mt-10 grid gap-10 lg:grid-cols-2">
-            <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-brand-dark">
-                West Auckland
-              </h3>
-              <div className="mt-4 grid gap-4">
-                {west.map((l) => (
-                  <AreaCard key={l.slug} location={l} />
-                ))}
-              </div>
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-navy">Areas we cover</h2>
+          <p className="mt-3 text-navy-dark/70">
+            {site.serviceAreaSummary} If your suburb isn’t listed, call us anyway — we go
+            wherever the work is.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-10 lg:grid-cols-2">
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-brand-dark">
+              West Auckland
+            </h3>
+            <div className="mt-4 grid gap-4">
+              {west.map((l) => (
+                <AreaCard key={l.slug} location={l} />
+              ))}
             </div>
-            <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-brand-dark">
-                Central Auckland
-              </h3>
-              <div className="mt-4 grid gap-4">
-                {central.map((l) => (
-                  <AreaCard key={l.slug} location={l} />
-                ))}
-              </div>
+          </div>
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-brand-dark">
+              Central Auckland
+            </h3>
+            <div className="mt-4 grid gap-4">
+              {central.map((l) => (
+                <AreaCard key={l.slug} location={l} />
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+      <section className="border-t border-navy/10 bg-brand-50/40">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <h2 className="text-3xl font-extrabold tracking-tight text-navy">
             What our clients say
@@ -281,6 +299,7 @@ export default function HomePage() {
           {testimonials.slice(0, 3).map((t) => (
             <TestimonialCard key={t.quote} t={t} />
           ))}
+        </div>
         </div>
       </section>
 

@@ -36,18 +36,18 @@ export default function ContactPage() {
           </div>
 
           <aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">
-            <div className="rounded-xl bg-navy p-6 text-white">
-              <h2 className="text-sm font-bold uppercase tracking-wider text-brand-200">
+            <div className="rounded-xl border border-brand/20 bg-brand-50 p-6">
+              <h2 className="text-sm font-bold uppercase tracking-wider text-brand-dark">
                 Prefer to talk?
               </h2>
               <a
                 href={site.phoneHref}
-                className="mt-3 flex items-center gap-3 text-xl font-extrabold hover:text-brand-200"
+                className="mt-3 flex items-center gap-3 text-xl font-extrabold text-navy hover:text-brand"
               >
-                <PhoneIcon className="h-6 w-6 text-brand-200" />
+                <PhoneIcon className="h-6 w-6 text-brand" />
                 {site.phone}
               </a>
-              <p className="mt-2 text-sm text-white/70">{site.hours}</p>
+              <p className="mt-2 text-sm text-navy-dark/65">{site.hours}</p>
             </div>
 
             <div className="rounded-xl border border-navy/10 p-6">
