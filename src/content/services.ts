@@ -15,52 +15,143 @@ export const services: Service[] = [
     },
     blurb:
       "Walls, ceilings, trim and doors — careful prep and a flawless finish that transforms your rooms.",
-    intro: [
-      "A fresh interior repaint is the fastest way to lift a home — brighter rooms, cleaner lines, and colours that actually suit the way you live. PaintLink has been painting Auckland interiors since 2018, from single feature walls to complete whole-house repaints.",
-      "The difference between an average interior job and a great one is preparation and tidiness. We fill, sand and seal properly before a drop of paint goes on, we keep the workspace clean and sealed off from the rest of the house, and we leave every room ready to live in.",
-    ],
-    sections: [
+    // Body comes from `blocks` below (client-supplied layout), so intro/sections/
+    // included are unused for this service — edit `blocks` instead.
+    intro: [],
+    sections: [],
+    included: [],
+    blocks: [
       {
-        heading: "What we paint inside your home",
+        kind: "text",
         body: [
-          "No two interiors are the same, and we quote each job on what it actually needs — not a one-size-fits-all rate.",
-        ],
-        items: [
-          "Walls and ceilings — including stain blocking and mould treatment where needed",
-          "Trim, skirting boards, architraves and window frames",
-          "Doors, door frames and built-in cabinetry",
-          "Feature walls and colour changes",
-          "Wallpaper removal and wall preparation",
-          "Plaster repairs, crack filling and surface restoration",
+          "Your interior deserves a finish that looks exceptional and stands the test of time. Whether you’re building a new home, renovating an existing space, adding an extension, or simply refreshing tired walls, PaintLink provides professional interior painting tailored to your project.",
+          "Proudly serving Auckland since 2018, we’ve completed everything from feature walls and complete home repaints to large-scale new builds, renovations, and extensions. We work with homeowners, builders, and developers to deliver clean lines, smooth finishes, and craftsmanship you can rely on.",
         ],
       },
       {
-        heading: "Living in your home while we work",
+        kind: "photo",
+        src: "/gallery/interior-hallway-arch.jpg",
+        alt: "Villa hallway with original arch and mouldings painted crisp white by PaintLink",
+      },
+      {
+        kind: "text",
         body: [
-          "Most of our interior work happens in occupied homes, so we plan around you. Furniture is moved and covered, floors are protected, and we work room by room so your household keeps functioning. We use quality low-VOC paints where possible, so rooms are back in use quickly without lingering fumes.",
-          "For rental properties and homes being prepared for sale, we can work to tight deadlines between tenancies or before listing photos — see our rental property painting service for more.",
+          "The quality of an interior paint job is determined by the preparation—not just the paint itself. That’s why we invest the time in proper surface preparation, including plaster repairs, crack filling, sanding, stain blocking and priming to create a smooth, durable finish.",
+          "Every project is completed with the same attention to detail. We protect your home, keep work areas clean and organised, minimise dust wherever possible, and leave every room looking as though we were never there—apart from the fresh new finish.",
+        ],
+      },
+      {
+        kind: "text",
+        heading: "What we can help with inside your home",
+        body: [
+          "Whether you’re refreshing a single room, renovating your entire home, or completing a new build, we don’t just apply paint—we prepare every surface properly to achieve a flawless, long-lasting finish.",
+        ],
+        checkItems: [
+          {
+            title: "Wallpaper removal",
+            text: "Complete removal, adhesive cleanup and surface preparation ready for painting.",
+          },
+          {
+            title: "GIB stopping & plastering repairs",
+            text: "New GIB stopping, skim coating, crack repairs and seamless plaster repairs that blend perfectly with existing walls.",
+          },
+          {
+            title: "Water damage & leak repairs",
+            text: "We repair and prepare damaged walls and ceilings caused by leaks before applying premium stain-blocking systems.",
+          },
+          {
+            title: "Mould, smoke & stain treatment",
+            text: "Professional mould treatment, stain blocking and surface restoration to prevent stains bleeding back through the new paint.",
+          },
+          {
+            title: "Hole, dent & wall repairs",
+            text: "From picture hook holes to major wall damage, we restore surfaces to a smooth, paint-ready finish.",
+          },
+          {
+            title: "Kitchen, bathroom & laundry painting",
+            text: "Moisture-resistant coatings designed for high-humidity areas that are easy to clean and built to last.",
+          },
+          {
+            title: "Airless sprayed doors, trim & cabinetry",
+            text: "Factory-smooth, cabinetry-grade finishes on doors, skirting boards, architraves, window frames and built-in cabinetry.",
+          },
+          {
+            title: "New builds, renovations & extensions",
+            text: "Complete interior painting for builders, developers and homeowners, from new GIB through to final handover.",
+          },
+        ],
+      },
+      {
+        kind: "photo",
+        src: "/gallery/interior-prep-masked.jpg",
+        alt: "Interior fully masked and drop-sheeted, prepped and ready for painting",
+      },
+      {
+        kind: "text",
+        heading: "Painting While You’re Living at Home",
+        body: [
+          "Many of our projects are completed while homeowners are still living in the property, so we work around your daily routine to keep disruption to a minimum. We carefully move and protect furniture, cover all floors and surfaces, and complete the work in planned stages so you can continue using your home wherever possible.",
+          "We maintain a clean, organised worksite from start to finish and use premium low-VOC paints whenever suitable, helping reduce odours and allowing rooms to be back in use sooner. At the end of each day, we leave the work area tidy and safe for your family.",
+          "We also work on vacant homes, new builds, renovations, rental properties and homes being prepared for sale. Whether you have a strict deadline between tenancies or need your home ready before listing photos or handover, we’ll work with you to keep your project on schedule.",
         ],
       },
     ],
-    included: [
-      "Full surface preparation — filling, sanding, sealing",
-      "Premium paint systems from major NZ suppliers",
-      "Furniture and floor protection throughout",
-      "Colour advice if you want it",
-      "Daily clean-up and a spotless handover",
-    ],
+    sidebarPhoto: {
+      src: "/gallery/interior-panelled-lounge.jpg",
+      alt: "Character living room with panelled ceiling and timber floors, freshly repainted",
+    },
     faqs: [
       {
+        q: "How much does it cost to paint the interior of a house?",
+        a: "Every home is different, so we provide a detailed quotation after inspecting the property. While new builds can often be priced using square metre rates because the surfaces are new and consistent, repaints can’t be accurately priced that way. Existing homes vary greatly in the amount of preparation required, including plaster repairs, crack filling, wallpaper removal, stain blocking, mould treatment, water damage repairs and surface restoration. Quoting each project individually ensures you receive an accurate price with no surprises.",
+      },
+      {
         q: "How long does it take to paint the interior of a house?",
-        a: "A standard three-bedroom home typically takes 4–7 working days for a full interior repaint, depending on the amount of preparation needed and the number of colours. We confirm a timeframe with your quote and stick to it.",
+        a: "The time required depends on the size of the property, the condition of the existing surfaces, the amount of preparation needed and the scope of work. After we’ve inspected your project and prepared your quotation, we’ll provide a clear timeframe so you know exactly what to expect before work begins. Throughout the project, we’ll keep you updated on our progress and any changes to the schedule.",
       },
       {
-        q: "Do I need to move out while you paint?",
-        a: "No — most of our interior repaints are done with the family living at home. We work room by room, seal off work areas, and use low-odour paints so the disruption is minimal.",
+        q: "Will there be much smell?",
+        a: "Modern premium low-VOC paints produce very little odour compared to older paint systems. Good ventilation and quality products mean most rooms can be used again shortly after painting.",
       },
       {
-        q: "Can you help with colour selection?",
-        a: "Yes. We're happy to advise on colours and finishes that work with your lighting and furnishings, and we can arrange test pots so you can see colours on your own walls before committing.",
+        q: "Do you guarantee your work?",
+        a: "Yes. We stand behind the quality of our workmanship and use premium paint systems designed for long-term performance. If any workmanship issues arise, we’ll return and put them right.",
+      },
+      {
+        q: "Can you paint kitchen cabinets?",
+        a: "Yes. Existing cabinets can often be professionally refinished instead of replaced, giving your kitchen a completely new look at a fraction of the cost of installing new cabinetry.",
+      },
+      {
+        q: "Do you spray doors, trims and cabinets?",
+        a: "Yes. We can airless spray doors, skirting boards, architraves, window frames and cabinetry to achieve a smooth, factory-quality finish that isn’t possible with standard brush application alone.",
+      },
+      {
+        q: "What type of paint do you use?",
+        a: "We use premium paint systems from trusted manufacturers including Dulux, Resene, Wattyl and other professional coatings depending on your project and the finish required.",
+      },
+      {
+        q: "Can you paint over mould?",
+        a: "We don’t simply paint over mould. We first treat the affected area, identify any moisture-related issues where possible, apply mould-resistant products where appropriate, and use stain-blocking primers before repainting.",
+      },
+      {
+        q: "Do you remove wallpaper?",
+        a: "Yes. We professionally remove wallpaper, remove old adhesive, repair any wall damage and prepare the surface correctly before painting. Proper preparation helps prevent future paint failure.",
+      },
+      {
+        q: "Can you repair water damage from leaks?",
+        a: "Yes. Once the source of the leak has been repaired, we can restore damaged plasterboard, carry out plaster repairs, apply stain-blocking primers and repaint the affected areas.",
+      },
+      {
+        q: "Can you repair damaged walls before painting?",
+        a: "Absolutely. We repair dents, holes, cracked plaster, damaged GIB, water-damaged areas, nail holes and other surface imperfections before painting to ensure a smooth, professional finish.",
+      },
+      {
+        q: "Do I need to empty the rooms first?",
+        a: "We ask that personal items, valuables and small breakables are removed before we start. We can carefully move and protect larger furniture where needed, making the process as easy as possible for you.",
+      },
+      {
+        q: "Can I stay in my home while you’re painting?",
+        a: "Yes. Many of our projects are completed while homeowners are living in the property. We work in stages, protect your furniture and flooring, minimise disruption, and leave the work area clean and tidy at the end of each day.",
       },
     ],
   },

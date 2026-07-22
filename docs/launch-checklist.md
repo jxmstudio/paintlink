@@ -2,6 +2,17 @@
 
 Build-complete → live. Work through in order.
 
+## Waiting on Shane
+
+- [ ] **Exterior page files** — his layout is: Part 1 text → Photo 1 → Part 2 text →
+      Part 3 text → Photo 2 → Photo 3 → Questions ("keep everything else same").
+      The interior page already uses the `blocks` system in `src/content/services.ts`
+      that this layout needs, so once the Dropbox files arrive it's a data-only edit:
+      copy the `blocks` / `sidebarPhoto` / `faqs` shape from the `interior-painting`
+      record, run the photos through the import script, done. No template work.
+- [ ] **Copy review** — `docs/PaintLink-copy-review.docx` sent for his tracked-changes
+      markup of the remaining pages (~20% he wants reworded).
+
 ## Before launch
 
 - [ ] **Replace placeholder testimonials** — `src/content/testimonials.ts` (marked with

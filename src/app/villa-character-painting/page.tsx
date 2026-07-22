@@ -5,7 +5,6 @@ import { locationsByRegion } from "@/content/locations";
 import { PageHero } from "@/components/PageHero";
 import { CtaSection } from "@/components/CtaSection";
 import { FaqSection } from "@/components/FaqSection";
-import { CheckIcon } from "@/components/Cards";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/content/site";
 
@@ -39,18 +38,58 @@ const expertise = [
   {
     title: "Heritage weatherboard exteriors",
     text: "Hundreds of metres of kauri weatherboard, scraped, primed and repainted properly — with rot repairs and re-puttying along the way.",
+    image: {
+      src: "/gallery/villa-weatherboard-exteriors.jpg",
+      alt: "Weatherboard villa exterior repainted in soft blue with white and navy trim",
+    },
   },
   {
     title: "Sash windows & original joinery",
     text: "Original double-hung sashes freed, eased, re-puttied and painted so they still slide — not glued shut with paint.",
+    image: {
+      src: "/gallery/villa-sash-windows-joinery.jpg",
+      alt: "Restored double-hung sash windows with crisp white joinery and navy sashes",
+    },
   },
   {
     title: "Verandahs, fretwork & detail",
     text: "Turned posts, balustrades, brackets and fretwork picked out cleanly — the details that make a villa a villa.",
+    image: {
+      src: "/gallery/villa-verandahs-fretwork.jpg",
+      alt: "Villa verandah with turned posts, arched fretwork and freshly painted balustrade",
+    },
   },
   {
     title: "Interior character work",
     text: "High stud walls, timber panelling, ceiling roses and enamelled trim — finished to suit homes with real history.",
+    image: {
+      src: "/gallery/villa-interior-character-work.jpg",
+      alt: "Character interior with panelled ceiling detail, repainted above original timber floors",
+    },
+  },
+  {
+    title: "Paint stripping back to bare timber",
+    text: "Where old coatings have failed, we strip right back using safe lead-paint practices — then prime and rebuild the system coat by coat.",
+    image: {
+      src: "/gallery/villa-paint-stripping.jpg",
+      alt: "Villa weatherboards stripped back to bare timber from the scaffold, ready for priming",
+    },
+  },
+  {
+    title: "Rotten timber repair",
+    text: "Rotten boards, sills and sections of joinery cut out and replaced before painting, so the new finish has something sound to sit on.",
+    image: {
+      src: "/gallery/villa-rotten-timber-repair.jpg",
+      alt: "Repaired and repainted window sill and surround on a dark weatherboard villa",
+    },
+  },
+  {
+    title: "Villa roofs",
+    text: "Long-run and corrugated roofs on character homes prepared and recoated — finishing the job the weather sees first.",
+    image: {
+      src: "/gallery/villa-roofs.jpg",
+      alt: "Corrugated villa roof freshly coated in deep red against a blue sky",
+    },
   },
 ];
 
@@ -136,14 +175,25 @@ export default function VillaPage() {
           <h2 className="text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
             What villa &amp; character work involves
           </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {expertise.map((item) => (
-              <div key={item.title} className="rounded-xl border border-navy/10 bg-white p-6 shadow-sm">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand">
-                  <CheckIcon className="h-5 w-5" />
-                </span>
-                <h3 className="mt-4 font-bold text-navy">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy-dark/70">{item.text}</p>
+              <div
+                key={item.title}
+                className="group flex flex-col overflow-hidden rounded-xl border border-navy/10 bg-white shadow-sm"
+              >
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src={item.image.src}
+                    alt={item.image.alt}
+                    fill
+                    sizes="(min-width: 1024px) 22rem, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-bold text-navy">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-navy-dark/70">{item.text}</p>
+                </div>
               </div>
             ))}
           </div>

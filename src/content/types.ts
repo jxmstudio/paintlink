@@ -9,6 +9,20 @@ export type ContentSection = {
   items?: string[];
 };
 
+/**
+ * An ordered piece of a service page body. Used when a page needs a bespoke
+ * text/photo running order (see the interior page) rather than the standard
+ * intro + sections layout.
+ */
+export type ServiceBlock =
+  | {
+      kind: "text";
+      heading?: string;
+      body: string[];
+      checkItems?: { title: string; text: string }[];
+    }
+  | { kind: "photo"; src: string; alt: string };
+
 export type Service = {
   slug: string;
   name: string;
@@ -23,8 +37,16 @@ export type Service = {
   sections: ContentSection[];
   included: string[];
   faqs: Faq[];
-  /** Optional real job photo shown on the service page (path under /public). */
+  /** Photo used on service cards, and as the lead image when `blocks` is unset. */
   image?: { src: string; alt: string };
+  /**
+   * Bespoke body layout. When set, the page renders these in order instead of
+   * `intro` + `sections`, and drops the lead image and hero intro so the first
+   * block starts the page.
+   */
+  blocks?: ServiceBlock[];
+  /** Replaces the sidebar's "What's included" box with this photo + quote CTA. */
+  sidebarPhoto?: { src: string; alt: string };
 };
 
 export type Region = "West Auckland" | "Central Auckland";
