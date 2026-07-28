@@ -30,3 +30,12 @@ body {
   background: var(--color-brand);
   color: #fff;
 }
+
+/* Horizontal carousel strips hide their scrollbar but stay swipeable/keyboard-scrollable. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -19,6 +19,8 @@ export type ServiceBlock =
       kind: "text";
       heading?: string;
       body: string[];
+      /** Plain bullet list (rendered with check icons), like ContentSection.items. */
+      items?: string[];
       checkItems?: { title: string; text: string }[];
     }
   | { kind: "photo"; src: string; alt: string };

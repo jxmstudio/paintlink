@@ -76,6 +76,16 @@ export default async function ServicePage({ params }: Props) {
                         {p}
                       </p>
                     ))}
+                    {block.items && (
+                      <ul className="mt-5 space-y-3">
+                        {block.items.map((item) => (
+                          <li key={item} className="flex items-start gap-3">
+                            <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-brand" />
+                            <span className="leading-relaxed text-navy-dark/80">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     {block.checkItems && (
                       <ul className="mt-6 space-y-4">
                         {block.checkItems.map((item) => (

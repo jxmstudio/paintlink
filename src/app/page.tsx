@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { site, yearsInBusiness } from "@/content/site";
 import { services } from "@/content/services";
 import { locationsByRegion } from "@/content/locations";
 import { testimonials } from "@/content/testimonials";
 import { ServiceCard, AreaCard, CheckIcon } from "@/components/Cards";
-import { TestimonialCard } from "@/components/TestimonialCard";
 import { CtaSection } from "@/components/CtaSection";
 import { PhoneIcon } from "@/components/Header";
+import { HeroCarousel } from "@/components/HeroCarousel";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
+import { ProjectsCarousel } from "@/components/ProjectsCarousel";
 
 export const metadata: Metadata = {
   title: { absolute: "PaintLink | House Painters West & Central Auckland" },
@@ -34,6 +35,40 @@ const whyUs = [
     title: "Fixed, honest quotes",
     text: "Clear scope, fixed price, no surprises — and we turn quotes around fast.",
   },
+];
+
+const heroSlides = [
+  {
+    src: "/gallery/st-marys-bay-after.jpg",
+    alt: "Two-storey villa in St Marys Bay after a full exterior repaint by PaintLink",
+  },
+  {
+    src: "/gallery/exterior-job-1.jpg",
+    alt: "Contemporary home painted deep crimson with cream trim and timber louvre screens",
+  },
+  {
+    src: "/gallery/roof-after-charcoal.jpg",
+    alt: "Long-run iron roof restored and recoated in charcoal grey",
+  },
+  {
+    src: "/gallery/cedar-restoration-after.jpg",
+    alt: "Cedar soffit restored by PaintLink to a rich, even tone",
+  },
+  {
+    src: "/gallery/interior-1.jpg",
+    alt: "Villa hallway with original archway and mouldings painted crisp white",
+  },
+];
+
+const projectTiles = [
+  { src: "/gallery/st-marys-bay-after.jpg", alt: "Villa in St Marys Bay after a full exterior repaint", label: "Villa repaint" },
+  { src: "/gallery/exterior-job-1.jpg", alt: "Modern home exterior painted deep crimson", label: "Exterior repaint" },
+  { src: "/gallery/roof-after-charcoal.jpg", alt: "Iron roof recoated in charcoal grey", label: "Roof restoration" },
+  { src: "/gallery/cedar-restoration-after.jpg", alt: "Restored cedar soffit with a rich, even tone", label: "Cedar restoration" },
+  { src: "/gallery/interior-1.jpg", alt: "Villa hallway interior painted crisp white", label: "Interior repaint" },
+  { src: "/gallery/deck-fence-1.jpg", alt: "Timber fence and retaining walls stained dark brown", label: "Deck & fence" },
+  { src: "/gallery/commercial-1.jpg", alt: "Two-storey commercial building being repainted", label: "Commercial" },
+  { src: "/gallery/villa-weatherboard-exteriors.jpg", alt: "Character villa weatherboard exterior freshly painted", label: "Weatherboard villa" },
 ];
 
 export default function HomePage() {
@@ -89,16 +124,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-navy/10 shadow-xl">
-              <Image
-                src="/gallery/st-marys-bay-after.jpg"
-                alt="Two-storey villa in St Marys Bay after a full exterior repaint by PaintLink"
-                fill
-                priority
-                sizes="(min-width: 1024px) 28rem, (min-width: 640px) 28rem, 100vw"
-                className="object-cover"
-              />
-            </div>
+            <HeroCarousel slides={heroSlides} />
             <div className="absolute -bottom-5 -left-5 rounded-xl border border-navy/10 bg-white px-5 py-4 shadow-lg">
               <p className="text-2xl font-extrabold text-brand">{yearsInBusiness()}+ years</p>
               <p className="text-sm font-semibold text-navy-dark/70">
@@ -207,46 +233,8 @@ export default function HomePage() {
               View Recent Projects →
             </Link>
           </div>
-          <div className="mt-10 grid gap-4 grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                src: "/gallery/st-marys-bay-after.jpg",
-                alt: "Villa in St Marys Bay after a full exterior repaint",
-                label: "Villa repaint",
-              },
-              {
-                src: "/gallery/cedar-restoration-after.jpg",
-                alt: "Restored cedar soffit with a rich, even tone",
-                label: "Cedar restoration",
-              },
-              {
-                src: "/gallery/roof-1.jpg",
-                alt: "Long-run roof freshly coated in charcoal grey",
-                label: "Roof repaint",
-              },
-              {
-                src: "/gallery/interior-1.jpg",
-                alt: "Villa hallway interior painted crisp white",
-                label: "Interior repaint",
-              },
-            ].map((photo) => (
-              <Link
-                key={photo.src}
-                href="/projects"
-                className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-navy/10 shadow-sm"
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, 50vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-dark/85 to-transparent px-4 pb-3 pt-10 text-sm font-bold text-white">
-                  {photo.label}
-                </span>
-              </Link>
-            ))}
+          <div className="mt-10">
+            <ProjectsCarousel tiles={projectTiles} />
           </div>
         </div>
       </section>
@@ -295,10 +283,8 @@ export default function HomePage() {
             All testimonials →
           </Link>
         </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {testimonials.slice(0, 3).map((t) => (
-            <TestimonialCard key={t.quote} t={t} />
-          ))}
+        <div className="mt-10">
+          <TestimonialCarousel testimonials={testimonials} />
         </div>
         </div>
       </section>
