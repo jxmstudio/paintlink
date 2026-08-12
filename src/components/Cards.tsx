@@ -2,33 +2,86 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Location, Service } from "@/content/types";
 
-export function ServiceCard({ service }: { service: Service }) {
+/**
+ * The photo-led card used across the services grids. Takes a plain shape so
+ * pages that aren't under /services (villa & character) can sit in the same
+ * grid and look identical.
+ */
+export function LinkCard({
+  href,
+  title,
+  blurb,
+  image,
+  priority = false,
+}: {
+  href: string;
+  title: string;
+  blurb: string;
+  image?: { src: string; alt: string };
+  /** Set on above-the-fold cards so they don't lazy-load in late. */
+  priority?: boolean;
+}) {
   return (
     <Link
-      href={`/services/${service.slug}`}
-      className="group flex flex-col overflow-hidden rounded-xl border border-navy/10 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-md"
+      href={href}
+      className="group flex w-full flex-col overflow-hidden rounded-xl border border-navy/10 bg-white shadow-sm transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-navy/10 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
     >
-      {service.image && (
-        <div className="relative aspect-[16/10] w-full overflow-hidden">
+      {image && (
+        // brand-50 backdrop means the card reads as "loading", never as broken.
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-brand-50">
           <Image
-            src={service.image.src}
-            alt={service.image.alt}
+            src={image.src}
+            alt={image.alt}
             fill
+            priority={priority}
             sizes="(min-width: 1024px) 22rem, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-navy-dark/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           />
         </div>
       )}
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-lg font-bold text-navy group-hover:text-brand-dark">
-          {service.name}
+      <div className="relative flex flex-1 flex-col p-6">
+        {/* Accent rule that draws itself across the card on hover. */}
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-brand transition-transform duration-300 ease-out group-hover:scale-x-100"
+        />
+        <h3 className="text-lg font-bold text-navy transition-colors group-hover:text-brand-dark">
+          {title}
         </h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-dark/70">{service.blurb}</p>
-        <span className="mt-4 text-sm font-bold text-brand group-hover:underline">
-          Learn more →
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-dark/70">{blurb}</p>
+        <span className="mt-4 flex items-center gap-1.5 text-sm font-bold text-brand">
+          Learn more
+          <span
+            aria-hidden="true"
+            className="transition-transform duration-300 ease-out group-hover:translate-x-1.5"
+          >
+            →
+          </span>
         </span>
       </div>
     </Link>
+  );
+}
+
+export function ServiceCard({
+  service,
+  priority = false,
+}: {
+  service: Service;
+  priority?: boolean;
+}) {
+  return (
+    <LinkCard
+      href={`/services/${service.slug}`}
+      title={service.name}
+      blurb={service.blurb}
+      image={service.image}
+      priority={priority}
+    />
   );
 }
 

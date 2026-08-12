@@ -9,6 +9,19 @@ export type ContentSection = {
   items?: string[];
 };
 
+export type Photo = { src: string; alt: string };
+
+/** Two photos of the same subject, shown side by side with Before/After badges. */
+export type BeforeAfterPair = {
+  before: Photo;
+  after: Photo;
+  /** Overrides the default "Before"/"After" badge text. */
+  labels?: { before: string; after: string };
+  /** Shape of each half. Defaults to 3/4 (portrait). */
+  aspect?: "3/4" | "4/3" | "1/1";
+  caption?: string;
+};
+
 /**
  * An ordered piece of a service page body. Used when a page needs a bespoke
  * text/photo running order (see the interior page) rather than the standard
@@ -23,7 +36,14 @@ export type ServiceBlock =
       items?: string[];
       checkItems?: { title: string; text: string }[];
     }
-  | { kind: "photo"; src: string; alt: string };
+  | { kind: "photo"; src: string; alt: string }
+  | {
+      kind: "beforeAfter";
+      heading?: string;
+      body?: string[];
+      /** Stacked vertically when there's more than one. */
+      pairs: BeforeAfterPair[];
+    };
 
 export type Service = {
   slug: string;

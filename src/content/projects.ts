@@ -1,190 +1,184 @@
-// Recent projects — each entry is one job/house with its photo set.
+// Recent projects — the job list Shane supplied (August 2026), in his order.
 //
-// TODO (Shane): the photo groupings below are a best guess from the images
-// themselves. Please confirm which photos belong to which job, add suburbs
-// where known, and correct any titles/summaries. Each project is one object —
-// easy to add, remove or reorder.
+// Projects with photos render as full sections. The rest render as a compact
+// "coming soon" list until the photos arrive.
+//
+// TODO (Shane): for each project still marked `photos: []`, send through the
+// photos and a sentence or two about the job, and we'll promote it to a full
+// section. Before/after pairs are especially good — they carry the page.
 
-export type ProjectPhoto = { src: string; alt: string };
+import type { BeforeAfterPair, Photo } from "./types";
 
 export type Project = {
   title: string;
   location?: string;
   /** Service slugs — rendered as linked tags. */
   services: string[];
-  summary: string;
+  /** Omitted for projects still awaiting details from Shane. */
+  summary?: string;
   /** Optional before/after pair, shown with Before/After badges. */
-  beforeAfter?: { before: ProjectPhoto; after: ProjectPhoto };
+  beforeAfter?: BeforeAfterPair;
   /** Remaining photos for the project. First one leads. */
-  photos: ProjectPhoto[];
+  photos: Photo[];
 };
 
 export const projects: Project[] = [
   {
-    title: "Villa exterior restoration",
+    title: "Commercial jobs",
+    services: ["commercial-painting", "exterior-painting"],
+    summary:
+      "Offices, retail and multi-unit buildings across Auckland, worked from elevated platforms and scaffold so trading and tenancies carry on around us. Staged programmes, after-hours work where it's needed, and a fixed scope signed off before we start.",
+    photos: [
+      {
+        src: "/gallery/commercial-1.jpg",
+        alt: "PaintLink painter on an elevated work platform repainting a two-storey commercial building in Auckland",
+      },
+    ],
+  },
+  {
+    title: "Royal Road School",
+    location: "Massey",
+    services: ["school-painting", "roof-painting"],
+    summary:
+      "Classroom blocks, covered walkways and interior breakout spaces repainted around the school calendar, plus roof work over the same programme. Hard-wearing, low-odour systems throughout, and every work area secured and handed back clean at the end of each day.",
+    photos: [
+      {
+        src: "/gallery/school-1.jpg",
+        alt: "Freshly repainted school classroom block with crisp white joinery and blue trim along a covered walkway",
+      },
+      {
+        src: "/gallery/school-2.jpg",
+        alt: "Bright school library breakout space with freshly painted orange and green feature walls and tiered seating",
+      },
+      {
+        src: "/gallery/school-roof.jpg",
+        alt: "School building roof after recoating",
+      },
+    ],
+  },
+  {
+    title: "St Marys Bay villa",
     location: "St Marys Bay",
     services: ["exterior-painting", "paint-stripping-removal"],
     summary:
       "A full exterior restoration of a two-storey character villa — weatherboards and joinery stripped back where the old coatings had failed, sash windows re-puttied and eased, and the whole exterior repainted in fresh whites and greys. The front door and stained-glass entry were restored to match.",
     beforeAfter: {
       before: {
-        src: "st-marys-bay-before.jpg",
+        src: "/gallery/st-marys-bay-before.jpg",
         alt: "St Marys Bay villa before its repaint, with tired and faded paintwork",
       },
       after: {
-        src: "st-marys-bay-after.jpg",
+        src: "/gallery/st-marys-bay-after.jpg",
         alt: "St Marys Bay villa after a full exterior repaint in fresh whites and greys",
       },
     },
     photos: [
       {
-        src: "st-marys-bay-villa.jpg",
+        src: "/gallery/st-marys-bay-villa.jpg",
         alt: "Street view of the finished St Marys Bay villa behind a white picket fence",
       },
       {
-        src: "st-marys-door-before.jpg",
+        src: "/gallery/st-marys-door-before.jpg",
         alt: "Front door with stained-glass surround before restoration",
       },
       {
-        src: "st-marys-door-after.jpg",
+        src: "/gallery/st-marys-door-after.jpg",
         alt: "Front door with stained-glass surround after repainting",
       },
       {
-        src: "paint-stripping-1.jpg",
+        src: "/gallery/paint-stripping-1.jpg",
         alt: "Bay window stripped back to bare timber during preparation",
       },
     ],
   },
   {
-    title: "Villa weatherboard strip & repaint",
-    // TODO (Shane): suburb + confirm these stripping/sash shots are one job
-    services: ["paint-stripping-removal", "exterior-painting"],
-    summary:
-      "Generations of failed paint meant this villa needed serious preparation — weatherboards and window joinery stripped back to bare timber using safe lead-paint practices, then primed and rebuilt coat by coat. The sash windows went from bare, weathered timber to crisp black-and-white new.",
-    beforeAfter: {
-      before: {
-        src: "villa-before.jpg",
-        alt: "Original sash window stripped to bare timber during preparation",
-      },
-      after: {
-        src: "villa-after.jpg",
-        alt: "Finished porch with black sash windows and freshly painted weatherboards",
-      },
-    },
-    photos: [
-      { src: "paint-stripping-3.jpg", alt: "Weatherboards stripped back along the scaffold line" },
-      { src: "paint-stripping-4.jpg", alt: "Window and dormer detail stripped to bare timber" },
-      { src: "paint-stripping-2.jpg", alt: "Raw weatherboards ready for priming" },
-    ],
-  },
-  {
-    title: "Cedar restoration & re-stain",
-    // TODO (Shane): suburb
-    services: ["cedar-staining-restoration"],
-    summary:
-      "Sun-weathered cedar brought back to life — failed coatings and grey, oxidised timber removed with cedar-safe washing, then brightened and finished with a penetrating stain that restores the deep, even tone the cladding had when it was new.",
-    beforeAfter: {
-      before: {
-        src: "cedar-restoration-before.jpg",
-        alt: "Weathered cedar soffit with failing coating before restoration",
-      },
-      after: {
-        src: "cedar-restoration-after.jpg",
-        alt: "The same cedar restored to a rich, even tone",
-      },
-    },
-    photos: [
-      {
-        src: "cedar-staining-1.jpg",
-        alt: "Cedar cladding mid-stain, showing raw boards against freshly stained ones",
-      },
-      { src: "cedar-staining-2.jpg", alt: "Freshly stained cedar boards with an even finish" },
-    ],
-  },
-  {
-    title: "Concrete tile roof restoration",
-    // TODO (Shane): suburb
-    services: ["roof-painting", "house-washing-waterblasting"],
-    summary:
-      "A tired concrete tile roof treated for moss, waterblasted clean, repaired and recoated in a deep charcoal membrane system — years more life for a fraction of the cost of re-roofing.",
-    beforeAfter: {
-      before: {
-        src: "roof-b-before.jpg",
-        alt: "Concrete tile roof grey and weathered before restoration",
-      },
-      after: {
-        src: "roof-b-after.jpg",
-        alt: "Concrete tile roof recoated in uniform dark grey",
-      },
-    },
+    title: "Valley Rd character home",
+    location: "Mt Eden",
+    services: ["exterior-painting"],
     photos: [],
   },
   {
-    title: "Long-run roof coating, cedar home",
-    // TODO (Shane): suburb + confirm roof-1 (harbour view) belongs to this job or its own
-    services: ["roof-painting"],
-    summary:
-      "Long-run iron on a cedar-clad home, prepared and coated with a full roof membrane system for lasting protection against the weather.",
-    beforeAfter: {
-      before: {
-        src: "roof-a-before.jpg",
-        alt: "Long-run roof before coating, pale and weathered",
-      },
-      after: {
-        src: "roof-a-after.jpg",
-        alt: "Long-run roof after a full coating system in grey",
-      },
-    },
-    photos: [
-      {
-        src: "roof-1.jpg",
-        alt: "Long-run roof freshly coated in charcoal grey with harbour views beyond",
-      },
-    ],
+    title: "Grey Lynn villa",
+    location: "Grey Lynn",
+    services: ["exterior-painting", "paint-stripping-removal"],
+    photos: [],
   },
   {
-    title: "Villa interior repaint",
-    // TODO (Shane): suburb + confirm interior groupings (which shots are which house)
-    services: ["interior-painting"],
-    summary:
-      "A full interior repaint through a character villa — original archways, deep skirtings and high ceilings painted in crisp whites that let the period detail do the talking.",
-    photos: [
-      { src: "interior-1.jpg", alt: "Villa hallway with original archway painted crisp white" },
-      { src: "interior-3.jpg", alt: "Villa hallway archway detail freshly painted" },
-      { src: "interior-4.jpg", alt: "White living room with original fireplace" },
-      { src: "interior-6.jpg", alt: "Panelled ceiling with pendant light, freshly painted" },
-    ],
-  },
-  {
-    title: "Character home interior, warm neutrals",
-    // TODO (Shane): suburb + confirm groupings
-    services: ["interior-painting"],
-    summary:
-      "Warm modern neutrals through the living spaces, a panelled ceiling picked out cleanly, and bold green and yellow feature walls against natural timber — proof a character interior doesn't have to be all white.",
-    photos: [
-      {
-        src: "interior-7.jpg",
-        alt: "Living room with panelled ceiling and pendant lights in warm neutrals",
-      },
-      { src: "interior-2.jpg", alt: "Living room in warm neutrals with timber floors" },
-      { src: "interior-5.jpg", alt: "Hallway in warm neutrals with polished timber floors" },
-      {
-        src: "interior-8.jpg",
-        alt: "Bold green and yellow feature walls beside natural timber panelling",
-      },
-    ],
-  },
-  {
-    title: "Exteriors: contemporary & weatherboard",
-    // TODO (Shane): likely two separate jobs — split into two projects with suburbs
+    title: "Te Arai farm house",
+    location: "Te Arai",
     services: ["exterior-painting"],
-    summary:
-      "A contemporary home's cedar-slat screens refreshed in deep red, and a classic weatherboard exterior finished in soft sage — two very different houses, the same preparation-first approach.",
-    photos: [
-      { src: "exterior-3.jpg", alt: "Modern home with cedar-slat screens repainted deep red" },
-      { src: "exterior-4.jpg", alt: "Contemporary red-slat home exterior after repainting" },
-      { src: "exterior-5.jpg", alt: "Weatherboard home repainted in soft sage green" },
-      { src: "exterior-2.jpg", alt: "Villa eaves and arched window detail in white with red trim" },
-    ],
+    photos: [],
+  },
+  {
+    title: "Te Atatū minor dwelling",
+    location: "Te Atatū",
+    services: ["interior-painting", "exterior-painting"],
+    photos: [],
+  },
+  {
+    title: "Sandringham minor dwelling",
+    location: "Sandringham",
+    services: ["interior-painting", "exterior-painting"],
+    photos: [],
+  },
+  {
+    title: "Mt Albert villa extension",
+    location: "Mt Albert",
+    services: ["interior-painting", "exterior-painting"],
+    photos: [],
+  },
+  {
+    title: "Mt Eden Road character home",
+    location: "Mt Eden",
+    services: ["exterior-painting"],
+    photos: [],
+  },
+  {
+    title: "Laingholm character home",
+    location: "Laingholm",
+    services: ["exterior-painting"],
+    photos: [],
+  },
+];
+
+/**
+ * Photos from jobs that haven't been matched to a named project yet. Shown as
+ * a strip at the foot of the projects page so the work is still on show.
+ *
+ * TODO (Shane): tell us which of the projects above these belong to and we'll
+ * move them up into that project.
+ */
+export const unassignedWork: Photo[] = [
+  {
+    src: "/gallery/villa-after.jpg",
+    alt: "Villa porch with black sash windows and freshly painted weatherboards after restoration",
+  },
+  {
+    src: "/gallery/cedar-restoration-after.jpg",
+    alt: "Cedar cladding restored and re-stained to a rich, even tone",
+  },
+  {
+    src: "/gallery/roof-after-charcoal.jpg",
+    alt: "Corrugated iron roof restored and recoated in charcoal grey",
+  },
+  {
+    src: "/gallery/interior-1.jpg",
+    alt: "Villa hallway with original archway and mouldings painted crisp white",
+  },
+  {
+    src: "/gallery/exterior-job-1.jpg",
+    alt: "Contemporary home exterior painted deep crimson with cream trim and timber louvre screens",
+  },
+  {
+    src: "/gallery/interior-8.jpg",
+    alt: "Bold green and yellow feature walls beside natural timber panelling",
+  },
+  {
+    src: "/gallery/exterior-5.jpg",
+    alt: "Weatherboard home exterior repainted in soft sage green",
+  },
+  {
+    src: "/gallery/deck-fence-1.jpg",
+    alt: "Timber boundary fence and retaining walls stained a rich dark brown",
   },
 ];

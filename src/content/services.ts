@@ -301,9 +301,49 @@ export const services: Service[] = [
         ],
       },
       {
-        kind: "photo",
-        src: "/gallery/roof-before-moss.jpg",
-        alt: "Weathered red iron roof covered in moss and lichen before restoration",
+        kind: "beforeAfter",
+        heading: "Before and after",
+        body: [
+          "The same roof, same angle, photographed before we started and after the coating system went on.",
+        ],
+        pairs: [
+          {
+            before: {
+              src: "/gallery/roof-before-moss.jpg",
+              alt: "Faded red iron roof covered in moss and lichen before restoration",
+            },
+            after: {
+              src: "/gallery/roof-d-after.jpg",
+              alt: "The same iron roof after treatment, cleaning and recoating in charcoal grey",
+            },
+            caption: "Moss and lichen treated and washed off, then recoated in charcoal.",
+          },
+          {
+            before: {
+              src: "/gallery/roof-e-before.jpg",
+              alt: "Weathered red corrugated roof with chalky, failing paint and a skylight, viewed from the scaffold",
+            },
+            after: {
+              src: "/gallery/roof-after-charcoal.jpg",
+              alt: "The same corrugated roof after restoration, coated in charcoal grey",
+            },
+            caption:
+              "A chalky, sun-beaten red roof brought back with a full membrane system in charcoal.",
+          },
+          {
+            labels: { before: "Primed", after: "Finished" },
+            before: {
+              src: "/gallery/roof-primed.jpg",
+              alt: "Long-run roof on a cedar-clad home cleaned, sealed and primed part-way through the job",
+            },
+            after: {
+              src: "/gallery/roof-c-after.jpg",
+              alt: "The same long-run roof finished in grey, with new spouting",
+            },
+            caption:
+              "Prep matters more than paint: sealed and primed first, then two coats of roof membrane.",
+          },
+        ],
       },
       {
         kind: "text",
@@ -319,21 +359,11 @@ export const services: Service[] = [
         ],
       },
       {
-        kind: "photo",
-        src: "/gallery/roof-primed.jpg",
-        alt: "Corrugated iron roof cleaned, sealed and primed partway through a PaintLink roof restoration",
-      },
-      {
         kind: "text",
         heading: "Safety and access",
         body: [
           "Roof work is done with proper edge protection or harness systems as the job requires — compliant with WorkSafe requirements, with no shortcuts. We arrange all access equipment as part of the quote, so the price you see covers the whole job.",
         ],
-      },
-      {
-        kind: "photo",
-        src: "/gallery/roof-after-charcoal.jpg",
-        alt: "Long-run iron roof restored and recoated in charcoal grey after preparation",
       },
     ],
     included: [
@@ -590,13 +620,40 @@ export const services: Service[] = [
     },
     blurb:
       "Specialist care for cedar cladding — restoring weathered boards and protecting them properly.",
-    intro: [
-      "Cedar is a premium natural timber that adds warmth, character, and value to any home. To keep it looking its best, it requires specialist preparation and the correct coating system.",
-      "Whether your cedar has faded, weathered, or simply needs refreshing, we restore and protect it using proven restoration techniques and high-quality stains that enhance its natural grain while providing long-lasting protection against the elements.",
-      "PaintLink specialises in restoring and staining cedar cladding, screening, soffits, and architectural features throughout Auckland. From classic cedar homes to modern architectural builds, we restore weathered timber and protect it with premium stain systems designed for New Zealand’s conditions.",
-    ],
-    sections: [
+    // Body comes from `blocks` below so the before/after sits mid-page.
+    // `intro`/`sections` are unused for this service — edit `blocks` instead.
+    intro: [],
+    sections: [],
+    blocks: [
       {
+        kind: "text",
+        body: [
+          "Cedar is a premium natural timber that adds warmth, character, and value to any home. To keep it looking its best, it requires specialist preparation and the correct coating system.",
+          "Whether your cedar has faded, weathered, or simply needs refreshing, we restore and protect it using proven restoration techniques and high-quality stains that enhance its natural grain while providing long-lasting protection against the elements.",
+          "PaintLink specialises in restoring and staining cedar cladding, screening, soffits, and architectural features throughout Auckland. From classic cedar homes to modern architectural builds, we restore weathered timber and protect it with premium stain systems designed for New Zealand’s conditions.",
+        ],
+      },
+      {
+        kind: "beforeAfter",
+        heading: "Before and after",
+        pairs: [
+          {
+            aspect: "4/3",
+            before: {
+              src: "/gallery/cedar-restoration-before.jpg",
+              alt: "Weathered cedar gable and soffit, grey and blotchy with the coating failing, before restoration",
+            },
+            after: {
+              src: "/gallery/cedar-restoration-after.jpg",
+              alt: "The same cedar gable restored and re-stained to a rich, even tone, with the soffit repainted",
+            },
+            caption:
+              "The same gable end — weathered, oxidised cedar cleaned back, brightened and finished with a penetrating stain.",
+          },
+        ],
+      },
+      {
+        kind: "text",
         heading: "Restoring Weathered Cedar",
         body: [
           "Weathered cedar doesn’t always need replacing. With the right preparation and restoration process, faded, grey timber can often be brought back to life.",
@@ -610,11 +667,22 @@ export const services: Service[] = [
         ],
       },
       {
+        kind: "photo",
+        src: "/gallery/cedar-staining-1.jpg",
+        alt: "Cedar cladding part-way through staining, raw boards alongside freshly stained ones",
+      },
+      {
+        kind: "text",
         heading: "Protecting Cedar the Right Way",
         body: [
           "Cedar is a premium natural timber that deserves the right treatment. Unlike conventional paints and coatings, premium penetrating stains absorb into the timber, allowing it to breathe and move naturally while protecting it from the elements.",
           "By using the correct products and application methods, we enhance the cedar’s natural grain, reduce the risk of peeling and flaking, and make ongoing maintenance easier and more cost-effective—keeping your cedar looking its best for years to come.",
         ],
+      },
+      {
+        kind: "photo",
+        src: "/gallery/cedar-staining-2.jpg",
+        alt: "Freshly stained cedar boards with a deep, even finish",
       },
     ],
     included: [
@@ -734,34 +802,91 @@ export const services: Service[] = [
     metaDescription:
       "Fast, tidy rental property painting across Auckland for landlords and property managers. Between-tenancy turnarounds, Healthy Homes friendly, fair fixed pricing.",
     h1: "Rental Property Painting in Auckland",
-    // STAND-IN photo — swap for a real rental turnaround shot when Shane sends one.
     image: {
-      src: "/gallery/interior-5.jpg",
-      alt: "Freshly repainted hallway in warm neutrals with polished timber floors",
+      src: "/gallery/rental-turnaround-after.jpg",
+      alt: "Rental property exterior after a full repaint by PaintLink, in grey weatherboard with white trim",
     },
     blurb:
       "Fast between-tenancy turnarounds for landlords and property managers — tidy, priced fairly, done on time.",
-    intro: [
-      "Every week a rental sits empty costs you money. When a tenancy ends and the walls are tired, you need a painter who can quote fast, start on time, and hand the property back ready for viewings — not one who fits you in around bigger jobs.",
-      "PaintLink works with landlords and property managers across West and Central Auckland on exactly this. Since 2018 we've built our rental work around speed, tidiness and fair fixed pricing, because we know the vacancy clock is running.",
-    ],
-    sections: [
+    // Body comes from `blocks` below (client-supplied copy, August 2026).
+    // `intro`/`sections` are unused for this service — edit `blocks` instead.
+    intro: [],
+    sections: [],
+    blocks: [
       {
-        heading: "Built for the tenancy cycle",
-        body: ["What landlords and property managers get from us:"],
-        items: [
-          "Fast quotes — often from a video walkthrough or agent access, same week",
-          "Between-tenancy turnarounds — interiors typically done in 2–4 days",
-          "Durable, washable paint systems that survive tenants and wipe clean",
-          "Neutral colour schemes that photograph well and suit every applicant",
-          "Direct invoicing to the property manager or owner, with clear documentation",
+        kind: "text",
+        body: [
+          "Vacant rental properties cost money every day they’re sitting empty. Whether you’re a landlord or property manager, you need painters who respond quickly, provide accurate quotes, and complete the job on schedule.",
+          "Paint Link specialises in rental property painting in Auckland, delivering fast turnarounds without compromising on quality. From full repaints to touch-ups between tenancies, we’ll have your property looking fresh, clean, and ready for new tenants as quickly as possible.",
         ],
       },
       {
+        kind: "beforeAfter",
+        heading: "Before and after",
+        pairs: [
+          {
+            before: {
+              src: "/gallery/rental-turnaround-before.jpg",
+              alt: "Tired rental property before painting, with flaking white weatherboards and weathered joinery",
+            },
+            after: {
+              src: "/gallery/rental-turnaround-after.jpg",
+              alt: "The same rental property after repainting, in grey weatherboard with white trim and charcoal steps",
+            },
+            caption:
+              "The same property, turned around between tenancies — weatherboards, joinery, block base and steps.",
+          },
+        ],
+      },
+      {
+        kind: "text",
+        body: [
+          "Paint Link works with landlords, property managers, and investors across West and Central Auckland to keep rental properties looking their best. Since 2018, we’ve built our reputation on fast communication, reliable scheduling, quality workmanship, and fair pricing—helping minimise vacancy periods and get properties ready for new tenants sooner.",
+        ],
+      },
+      {
+        kind: "text",
+        heading: "Built for Rental Property Turnarounds",
+        body: ["Here’s what landlords and property managers can expect from Paint Link:"],
+        checkItems: [
+          {
+            title: "Fast, no-obligation quotes",
+            text: "Often completed from a video walkthrough or agent access.",
+          },
+          {
+            title: "Reliable turnaround times",
+            text: "Most standard interior rental repaints are completed within one week, helping reduce vacancy.",
+          },
+          {
+            title: "Durable, washable paint systems",
+            text: "Designed to withstand everyday wear and make ongoing maintenance easier.",
+          },
+          {
+            title: "Modern, neutral colour schemes",
+            text: "Colours that appeal to a wide range of tenants and present well in online listings.",
+          },
+          {
+            title: "Clear communication and straightforward invoicing",
+            text: "With detailed documentation for owners and property managers.",
+          },
+        ],
+      },
+      {
+        kind: "photo",
+        src: "/gallery/rental-weatherboard-before.jpg",
+        alt: "Long weatherboard rental elevation with tired, chalky paint, photographed before repainting",
+      },
+      {
+        kind: "text",
         heading: "Protecting your asset long-term",
         body: [
           "Beyond turnaround repaints, we help owners plan exterior maintenance painting to protect weathertightness — the kind of scheduled upkeep that avoids big remediation bills and keeps insurance and Healthy Homes obligations comfortably met. For portfolios, we can inspect and prioritise across multiple properties so budget goes where it matters most.",
         ],
+      },
+      {
+        kind: "photo",
+        src: "/gallery/rental-exterior-after.jpg",
+        alt: "Rental property repainted in grey weatherboard with a fresh white painted block base",
       },
     ],
     included: [

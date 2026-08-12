@@ -8,6 +8,7 @@ import { PageHero } from "@/components/PageHero";
 import { CtaSection } from "@/components/CtaSection";
 import { FaqSection } from "@/components/FaqSection";
 import { CheckIcon } from "@/components/Cards";
+import { BeforeAfterPhotos } from "@/components/BeforeAfter";
 import { JsonLd } from "@/components/JsonLd";
 import { serviceSchema } from "@/lib/schema";
 
@@ -64,6 +65,28 @@ export default async function ServicePage({ params }: Props) {
                       className="object-cover"
                     />
                   </div>
+                ) : block.kind === "beforeAfter" ? (
+                  <section key={block.heading ?? block.pairs[0].before.src} className="my-10">
+                    {block.heading && (
+                      <h2 className="mb-4 text-2xl font-extrabold tracking-tight text-navy">
+                        {block.heading}
+                      </h2>
+                    )}
+                    {block.body?.map((p) => (
+                      <p key={p} className="mb-4 leading-relaxed text-navy-dark/80">
+                        {p}
+                      </p>
+                    ))}
+                    <div className="space-y-6">
+                      {block.pairs.map((pair) => (
+                        <BeforeAfterPhotos
+                          key={pair.before.src}
+                          pair={pair}
+                          sizes="(min-width: 1024px) 24rem, 50vw"
+                        />
+                      ))}
+                    </div>
+                  </section>
                 ) : (
                   <section key={block.heading ?? block.body[0]} className="mt-10 first:mt-0">
                     {block.heading && (

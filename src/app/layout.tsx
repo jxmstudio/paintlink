@@ -46,6 +46,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-NZ" className={`${archivo.variable} h-full antialiased`}>
+      <head>
+        {/* Scroll-reveal is a JS enhancement — show everything if JS never runs. */}
+        <noscript>
+          <style>{`.reveal { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
+      </head>
       <body className="min-h-full flex flex-col">
         <JsonLd data={localBusinessSchema()} />
         <Header />

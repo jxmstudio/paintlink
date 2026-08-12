@@ -154,8 +154,8 @@ export default function VillaPage() {
                 alt: "Two-storey villa in St Marys Bay after a full exterior repaint by PaintLink",
               },
               {
-                src: "/gallery/villa-exterior-3.jpg",
-                alt: "Restored villa verandah with turned posts and fretwork, freshly painted",
+                src: "/gallery/villa-exterior-1.jpg",
+                alt: "Villa on scaffolding stripped back to bare timber, part-way through a full exterior restoration",
               },
               {
                 src: "/gallery/st-marys-door-after.jpg",

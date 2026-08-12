@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site, yearsInBusiness } from "@/content/site";
 import { services } from "@/content/services";
+import { villaCard } from "@/content/villa";
 import { locationsByRegion } from "@/content/locations";
 import { testimonials } from "@/content/testimonials";
-import { ServiceCard, AreaCard, CheckIcon } from "@/components/Cards";
+import { ServiceCard, LinkCard, AreaCard, CheckIcon } from "@/components/Cards";
+import { Reveal } from "@/components/Reveal";
 import { CtaSection } from "@/components/CtaSection";
 import { PhoneIcon } from "@/components/Header";
 import { HeroCarousel } from "@/components/HeroCarousel";
@@ -17,25 +19,6 @@ export const metadata: Metadata = {
     "PaintLink are professional house painters serving West & Central Auckland since 2018. Interior, exterior, roof & commercial painting — free quotes, quality guaranteed.",
   alternates: { canonical: "/" },
 };
-
-const whyUs = [
-  {
-    title: `Established ${site.establishedYear}`,
-    text: `${yearsInBusiness()}+ years of painting Auckland homes and businesses — experience you can see in the finish.`,
-  },
-  {
-    title: "Preparation first",
-    text: "We fill, sand, prime and repair before painting, because prep is what makes a paint job last.",
-  },
-  {
-    title: "Genuinely local",
-    text: "West Auckland based, working across Central Auckland daily. A local team, not a franchise.",
-  },
-  {
-    title: "Fixed, honest quotes",
-    text: "Clear scope, fixed price, no surprises — and we turn quotes around fast.",
-  },
-];
 
 const heroSlides = [
   {
@@ -147,69 +130,14 @@ export default function HomePage() {
           </p>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
-            <ServiceCard key={s.slug} service={s} />
+          {services.map((s, i) => (
+            <Reveal key={s.slug} delay={(i % 3) * 80} className="flex">
+              <ServiceCard service={s} />
+            </Reveal>
           ))}
-        </div>
-      </section>
-
-      {/* Villa & character feature */}
-      <section className="border-y border-navy/10 bg-brand-50/60">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-20">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-brand">
-              Central Auckland Specialists
-            </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-navy">
-              Villa &amp; character home painting
-            </h2>
-            <p className="mt-4 leading-relaxed text-navy-dark/75">
-              Grey Lynn, Ponsonby, Mt Eden, Westmere, Herne Bay — Auckland’s villa belt is full
-              of hundred-year-old homes that deserve painters who understand them. Heritage
-              detail, sash windows, lead-safe practices and colour schemes that suit the era:
-              it’s specialist work, and it’s ours.
-            </p>
-            <Link
-              href="/villa-character-painting"
-              className="mt-6 inline-block rounded-lg bg-brand px-6 py-3.5 text-base font-bold text-white transition-colors hover:bg-brand-dark"
-            >
-              Villa &amp; Character Painting →
-            </Link>
-          </div>
-          <ul className="grid gap-3">
-            {[
-              "Full villa exterior restorations",
-              "Safe lead-based paint practices",
-              "Sash window & heritage joinery care",
-              "Era-appropriate colour consulting",
-            ].map((item) => (
-              <li
-                key={item}
-                className="flex items-center gap-3 rounded-xl border border-navy/10 bg-white px-5 py-4 font-semibold text-navy shadow-sm"
-              >
-                <CheckIcon className="h-5 w-5 shrink-0 text-brand" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Why us */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-        <h2 className="text-3xl font-extrabold tracking-tight text-navy">
-          Why Aucklanders choose PaintLink
-        </h2>
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {whyUs.map((item) => (
-            <div key={item.title}>
-              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand text-white">
-                <CheckIcon className="h-5 w-5" />
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-navy">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy-dark/70">{item.text}</p>
-            </div>
-          ))}
+          <Reveal delay={(services.length % 3) * 80} className="flex">
+            <LinkCard {...villaCard} />
+          </Reveal>
         </div>
       </section>
 
