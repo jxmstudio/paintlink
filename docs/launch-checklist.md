@@ -24,8 +24,9 @@ Build-complete → live. Work through in order.
       are already in the folder for rotation.
       Note: suburb captions are only set where known (St Marys Bay) — ask Shane where the
       other jobs were and add `location` fields for stronger local SEO.
-- [ ] **Quote form backend** — follow `docs/form-setup.md`, set `QUOTE_WEBHOOK_URL` in the
-      hosting environment, then send a test enquiry end-to-end.
+- [ ] **Quote form backend** — now posts straight to JXM Forms, no env var needed
+      (`docs/form-setup.md`). Send a test enquiry end-to-end and have JXM confirm it
+      landed in the dashboard.
 - [ ] **Confirm business details with Shane** — hours (`src/content/site.ts`, currently
       Mon–Sat 7:30–5:30 as a sensible default), and whether he wants a street address shown
       (schema currently lists Henderson locality only).
@@ -35,7 +36,6 @@ Build-complete → live. Work through in order.
 ## Deploy
 
 - [ ] Push to a Git repo, connect to Vercel (or Netlify) — zero-config Next.js deploy.
-- [ ] Add `QUOTE_WEBHOOK_URL` env var in hosting dashboard.
 - [ ] Point `paintlink.co.nz` DNS at the host; verify HTTPS + www→apex redirect.
 - [ ] Check `https://paintlink.co.nz/sitemap.xml` and `/robots.txt` resolve.
 

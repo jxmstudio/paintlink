@@ -5,6 +5,12 @@ import { services } from "@/content/services";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+// JXM Forms backend. The key is public by design (it identifies the site, it
+// doesn't authorise anything), so it lives in the client bundle rather than an
+// env var. Spam filtering happens server side at JXM.
+const FORM_ENDPOINT = "https://jxm-forms.vercel.app/api/submit/paintlink";
+const FORM_API_KEY = "TUBDVA39Vkh6WEG5UC_0_8lgN5VZQg6e";
+
 const inputClass =
   "w-full rounded-lg border border-navy/20 bg-white px-4 py-3 text-sm text-navy-dark placeholder:text-navy-dark/40 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30";
 
@@ -17,9 +23,9 @@ export function QuoteForm() {
     const data = Object.fromEntries(new FormData(form).entries());
     setStatus("sending");
     try {
-      const res = await fetch("/api/quote", {
+      const res = await fetch(FORM_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "content-type": "application/json", "x-api-key": FORM_API_KEY },
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error(`Request failed: ${res.status}`);
@@ -44,10 +50,11 @@ export function QuoteForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-4" aria-label="Quote request form">
-      {/* Honeypot — real users never see or fill this field */}
+      {/* Bot trap read by JXM Forms — must be named _gotcha and stay empty.
+          Real users never see or fill it. */}
       <input
         type="text"
-        name="company_website"
+        name="_gotcha"
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"
