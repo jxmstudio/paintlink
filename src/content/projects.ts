@@ -38,9 +38,9 @@ export const projects: Project[] = [
   {
     title: "Royal Road School",
     location: "Massey",
-    services: ["school-painting", "roof-painting"],
+    services: ["school-painting", "interior-painting", "exterior-painting", "roof-painting"],
     summary:
-      "Classroom blocks, covered walkways and interior breakout spaces repainted around the school calendar, plus roof work over the same programme. Hard-wearing, low-odour systems throughout, and every work area secured and handed back clean at the end of each day.",
+      "Royal Road School contacted us to freshen up and maintain a number of their buildings, with a mix of interior and exterior painting required across the school — the interior of the hall and lunchroom, the hall roof, a large classroom block exterior, the library, toilet blocks, front desk, staffroom and administration areas. With a large amount of work to complete while keeping disruption to the school to a minimum, the project was scheduled over the Christmas holiday period, and our team completed the full scope on time and on budget, ready for students and staff to return for the new school year.",
     photos: [
       {
         src: "/gallery/school-1.jpg",
@@ -51,8 +51,32 @@ export const projects: Project[] = [
         alt: "Bright school library breakout space with freshly painted orange and green feature walls and tiered seating",
       },
       {
-        src: "/gallery/school-roof.jpg",
-        alt: "School building roof after recoating",
+        src: "/gallery/royal-road-classroom-block.jpg",
+        alt: "Royal Road School classroom block exterior repainted in cream weatherboards with a recoated grey roof",
+      },
+      {
+        src: "/gallery/royal-road-walkway.jpg",
+        alt: "Covered walkway at Royal Road School with freshly painted white window joinery and blue classroom doors",
+      },
+      {
+        src: "/gallery/royal-road-entry.jpg",
+        alt: "Repainted glazed entry at Royal Road School with crisp white window frames and blue trim",
+      },
+      {
+        src: "/gallery/royal-road-library.jpg",
+        alt: "Library breakout space with fresh orange and green feature walls and curved bench seating",
+      },
+      {
+        src: "/gallery/royal-road-staffroom.jpg",
+        alt: "Staffroom kitchenette repainted in white with navy cabinetry at Royal Road School",
+      },
+      {
+        src: "/gallery/royal-road-toilet-block.jpg",
+        alt: "Refreshed toilet block interior with white walls and timber trim at Royal Road School",
+      },
+      {
+        src: "/gallery/royal-road-hall-roof.jpg",
+        alt: "Royal Road School hall roof recoated in charcoal grey, looking along the ridge",
       },
     ],
   },
