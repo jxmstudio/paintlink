@@ -236,13 +236,8 @@ export const services: Service[] = [
         alt: "Two-storey board-and-batten home repainted in grey with red window trims and garage door",
       },
     ],
-    included: [
-      "Full exterior wash-down before painting",
-      "Scraping, sanding, priming and minor repairs",
-      "Premium exterior paint systems with manufacturer-backed durability",
-      "Gardens, paths and decks protected throughout",
-      "Scaffolding or access equipment arranged where required",
-    ],
+    // "What's included" box removed at client's request (Aug 2026).
+    included: [],
     faqs: [
       {
         q: "Can you paint over old paint?",
@@ -301,11 +296,8 @@ export const services: Service[] = [
         ],
       },
       {
+        // Photos only — client asked for no heading or captions here (Aug 2026).
         kind: "beforeAfter",
-        heading: "Before and after",
-        body: [
-          "The same roof, same angle, photographed before we started and after the coating system went on.",
-        ],
         pairs: [
           {
             before: {
@@ -316,7 +308,6 @@ export const services: Service[] = [
               src: "/gallery/roof-d-after.jpg",
               alt: "The same iron roof after treatment, cleaning and recoating in charcoal grey",
             },
-            caption: "Moss and lichen treated and washed off, then recoated in charcoal.",
           },
           {
             before: {
@@ -327,8 +318,6 @@ export const services: Service[] = [
               src: "/gallery/roof-after-charcoal.jpg",
               alt: "The same corrugated roof after restoration, coated in charcoal grey",
             },
-            caption:
-              "A chalky, sun-beaten red roof brought back with a full membrane system in charcoal.",
           },
           {
             labels: { before: "Primed", after: "Finished" },
@@ -340,8 +329,6 @@ export const services: Service[] = [
               src: "/gallery/roof-c-after.jpg",
               alt: "The same long-run roof finished in grey, with new spouting",
             },
-            caption:
-              "Prep matters more than paint: sealed and primed first, then two coats of roof membrane.",
           },
         ],
       },
@@ -366,13 +353,8 @@ export const services: Service[] = [
         ],
       },
     ],
-    included: [
-      "Moss/mould treatment and waterblasting",
-      "Minor roof repairs before coating",
-      "Full roof membrane systems, spray applied",
-      "Colour change options — modernise the whole look of your home",
-      "Safety equipment and access included in the quote",
-    ],
+    // "What's included" box removed at client's request (Aug 2026).
+    included: [],
     faqs: [
       {
         q: "Is roof painting worth it, or should I just re-roof?",

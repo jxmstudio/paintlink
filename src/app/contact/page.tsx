@@ -7,7 +7,7 @@ import { PhoneIcon } from "@/components/Header";
 export const metadata: Metadata = {
   title: "Contact Us | Free Painting Quotes Auckland",
   description:
-    "Get a free painting quote from PaintLink. Call 021 145 2876, email info@paintlink.co.nz or send us the details — West & Central Auckland, no obligation.",
+    "Get a free painting quote from PaintLink. Call 021 145 2876, email info@paintlink.co.nz or send us the details — West & Central Auckland.",
   alternates: { canonical: "/contact" },
 };
 
@@ -16,7 +16,7 @@ export default function ContactPage() {
     <>
       <PageHero
         title="Get a Free Quote"
-        intro="Tell us what needs painting and we'll come back to you quickly — usually within one business day — to arrange a look and a fixed quote. No obligation, no pressure."
+        intro="Tell us what needs painting and we'll come back to you quickly — usually within one business day — to arrange a look and a fixed quote."
         crumbs={[{ name: "Contact", href: "/contact" }]}
       />
 

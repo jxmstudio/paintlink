@@ -194,18 +194,22 @@ export default async function ServicePage({ params }: Props) {
               </div>
             ) : (
               <div className="rounded-xl border border-navy/10 bg-brand-50/60 p-6">
-                <h2 className="text-lg font-extrabold text-navy">What’s included</h2>
-                <ul className="mt-4 space-y-3">
-                  {service.included.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm">
-                      <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
-                      <span className="text-navy-dark/80">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {service.included.length > 0 && (
+                  <>
+                    <h2 className="text-lg font-extrabold text-navy">What’s included</h2>
+                    <ul className="mt-4 space-y-3">
+                      {service.included.map((item) => (
+                        <li key={item} className="flex items-start gap-2.5 text-sm">
+                          <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                          <span className="text-navy-dark/80">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
                 <Link
                   href="/contact"
-                  className="mt-6 block rounded-lg bg-brand px-5 py-3 text-center text-sm font-bold text-white transition-colors hover:bg-brand-dark"
+                  className="mt-6 block rounded-lg bg-brand px-5 py-3 text-center text-sm font-bold text-white transition-colors hover:bg-brand-dark first:mt-0"
                 >
                   Get a Free Quote
                 </Link>
@@ -236,7 +240,7 @@ export default async function ServicePage({ params }: Props) {
       <FaqSection faqs={service.faqs} heading={`${service.name} — common questions`} />
       <CtaSection
         heading={`Need ${service.name.toLowerCase()}?`}
-        text="Tell us about the job and we'll come back with a free, fixed quote — no obligation, no pressure."
+        text="Tell us about the job and we'll come back with a free, fixed quote."
       />
     </>
   );

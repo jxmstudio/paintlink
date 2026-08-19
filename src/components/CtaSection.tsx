@@ -4,7 +4,7 @@ import { PhoneIcon } from "@/components/Header";
 
 export function CtaSection({
   heading = "Ready for a fresh coat?",
-  text = "Tell us about your job and we'll come back with a free, no-obligation quote — usually within a couple of days.",
+  text = "Tell us about your job and we'll come back with a free quote — usually within a couple of days.",
 }: {
   heading?: string;
   text?: string;

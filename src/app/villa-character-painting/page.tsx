@@ -281,7 +281,7 @@ export default function VillaPage() {
       <FaqSection faqs={faqs} heading="Villa painting — common questions" />
       <CtaSection
         heading="Own a villa or character home?"
-        text="Your home deserves more than just a fresh coat of paint. It deserves careful preparation, attention to detail and a finish built to withstand Auckland’s climate. Contact PaintLink today for a free, no-obligation quote and expert advice on painting your villa, bungalow or character home."
+        text="Your home deserves more than just a fresh coat of paint. It deserves careful preparation, attention to detail and a finish built to withstand Auckland’s climate. Contact PaintLink today for a free quote and expert advice on painting your villa, bungalow or character home."
       />
     </>
   );

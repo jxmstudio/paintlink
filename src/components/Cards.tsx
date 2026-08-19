@@ -16,7 +16,7 @@ export function LinkCard({
 }: {
   href: string;
   title: string;
-  blurb: string;
+  blurb?: string;
   image?: { src: string; alt: string };
   /** Set on above-the-fold cards so they don't lazy-load in late. */
   priority?: boolean;
@@ -52,8 +52,10 @@ export function LinkCard({
         <h3 className="text-lg font-bold text-navy transition-colors group-hover:text-brand-dark">
           {title}
         </h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-dark/70">{blurb}</p>
-        <span className="mt-4 flex items-center gap-1.5 text-sm font-bold text-brand">
+        {blurb && (
+          <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-dark/70">{blurb}</p>
+        )}
+        <span className="mt-4 flex flex-1 items-end gap-1.5 text-sm font-bold text-brand">
           Learn more
           <span
             aria-hidden="true"
@@ -70,15 +72,17 @@ export function LinkCard({
 export function ServiceCard({
   service,
   priority = false,
+  showBlurb = true,
 }: {
   service: Service;
   priority?: boolean;
+  showBlurb?: boolean;
 }) {
   return (
     <LinkCard
       href={`/services/${service.slug}`}
       title={service.name}
-      blurb={service.blurb}
+      blurb={showBlurb ? service.blurb : undefined}
       image={service.image}
       priority={priority}
     />

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site, yearsInBusiness } from "@/content/site";
+import { site } from "@/content/site";
 import { services } from "@/content/services";
 import { villaCard } from "@/content/villa";
 import { locationsByRegion } from "@/content/locations";
 import { testimonials } from "@/content/testimonials";
-import { ServiceCard, LinkCard, AreaCard, CheckIcon } from "@/components/Cards";
+import { ServiceCard, LinkCard, AreaCard } from "@/components/Cards";
 import { Reveal } from "@/components/Reveal";
 import { CtaSection } from "@/components/CtaSection";
 import { PhoneIcon } from "@/components/Header";
@@ -20,26 +20,17 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+// Two licensed photos for now — Shane is licensing the rest from the photographer.
 const heroSlides = [
   {
-    src: "/gallery/st-marys-bay-after.jpg",
-    alt: "Two-storey villa in St Marys Bay after a full exterior repaint by PaintLink",
+    src: "/gallery/dulux-grand-prix-2025.jpg",
+    alt: "Award-winning villa renovation with deep maroon ceiling and skylight over the kitchen",
+    caption: "Dulux Colour Awards 2025 Grand Prix winner",
   },
   {
-    src: "/gallery/exterior-job-1.jpg",
-    alt: "Contemporary home painted deep crimson with cream trim and timber louvre screens",
-  },
-  {
-    src: "/gallery/roof-after-charcoal.jpg",
-    alt: "Long-run iron roof restored and recoated in charcoal grey",
-  },
-  {
-    src: "/gallery/cedar-restoration-after.jpg",
-    alt: "Cedar soffit restored by PaintLink to a rich, even tone",
-  },
-  {
-    src: "/gallery/interior-1.jpg",
-    alt: "Villa hallway with original archway and mouldings painted crisp white",
+    src: "/gallery/here-magazine-cover.jpg",
+    alt: "Cover of Here magazine issue 31 featuring a villa renovation painted by PaintLink",
+    caption: "As featured in Here magazine",
   },
 ];
 
@@ -72,12 +63,16 @@ export default function HomePage() {
               West &amp; Central Auckland Painters
             </p>
             <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-navy sm:text-5xl lg:text-6xl">
-              Quality painting, <span className="text-brand">done properly.</span>
+              Trusted Auckland Painters for Homes &amp; Businesses
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-navy-dark/75">
-              Interior, exterior, roof and commercial painting across Auckland — from villa
-              restorations in Grey Lynn to family homes in Henderson. Painting since{" "}
-              {site.establishedYear}, and proud of every finish.
+              Looking for reliable Auckland painters who deliver quality workmanship that
+              lasts? PaintLink provides professional{" "}
+              <strong className="font-bold text-navy">
+                interior painting, exterior painting, roof painting, commercial painting, and
+                villa restoration
+              </strong>{" "}
+              throughout West and Central Auckland.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -94,26 +89,10 @@ export default function HomePage() {
                 {site.phone}
               </a>
             </div>
-            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-navy-dark/70">
-              {["Free quotes", "Fully insured", "Interior & exterior", "All of Auckland"].map(
-                (chip) => (
-                  <li key={chip} className="flex items-center gap-2">
-                    <CheckIcon className="h-4 w-4 text-brand" />
-                    {chip}
-                  </li>
-                )
-              )}
-            </ul>
           </div>
 
           <div className="relative mx-auto w-full max-w-md lg:max-w-none">
             <HeroCarousel slides={heroSlides} />
-            <div className="absolute -bottom-5 -left-5 rounded-xl border border-navy/10 bg-white px-5 py-4 shadow-lg">
-              <p className="text-2xl font-extrabold text-brand">{yearsInBusiness()}+ years</p>
-              <p className="text-sm font-semibold text-navy-dark/70">
-                painting Auckland homes
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -132,11 +111,11 @@ export default function HomePage() {
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 3) * 80} className="flex">
-              <ServiceCard service={s} />
+              <ServiceCard service={s} showBlurb={false} />
             </Reveal>
           ))}
           <Reveal delay={(services.length % 3) * 80} className="flex">
-            <LinkCard {...villaCard} />
+            <LinkCard href={villaCard.href} title={villaCard.title} image={villaCard.image} />
           </Reveal>
         </div>
       </section>
@@ -167,8 +146,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Areas */}
+      {/* About — copy supplied by Shane, Aug 2026 */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-navy">
+            About PaintLink
+          </h2>
+          <div className="mt-6 space-y-4 leading-relaxed text-navy-dark/80">
+            <p>
+              PaintLink was established in 2018 by Shane Williams with a straightforward
+              approach: provide good workmanship, use quality materials and be reliable from
+              the first quote through to completion.
+            </p>
+            <p>
+              We&rsquo;ve grown steadily over the years, with much of our work coming from
+              repeat customers and referrals. We&rsquo;ve never tried to compete by being the
+              cheapest. Instead, we focus on doing the preparation properly, using the right
+              products for the job and delivering a finish that will last.
+            </p>
+            <p>
+              We also believe the way a job is managed matters just as much as the painting
+              itself. That means clear communication, respecting people&rsquo;s homes and
+              properties, keeping the site tidy and dealing with any issues properly rather
+              than rushing through them.
+            </p>
+            <p>
+              Today, PaintLink remains an Auckland-owned and operated painting company.
+              We&rsquo;ve grown since we started, but the way we approach the work
+              hasn&rsquo;t changed &mdash; turn up when we say we will, do the job properly
+              and leave the property looking the way it should.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Areas */}
+      <section className="border-t border-navy/10 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-extrabold tracking-tight text-navy">Areas we cover</h2>
           <p className="mt-3 text-navy-dark/70">
@@ -197,6 +211,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+        </div>
         </div>
       </section>
 

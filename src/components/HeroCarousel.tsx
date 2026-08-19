@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useReducedMotion } from "./useReducedMotion";
 
-export type CarouselSlide = { src: string; alt: string };
+export type CarouselSlide = { src: string; alt: string; caption?: string };
 
 function Chevron({ className }: { className?: string }) {
   return (
@@ -48,18 +48,27 @@ export function HeroCarousel({
       aria-label="Recent PaintLink work"
     >
       {slides.map((s, i) => (
-        <Image
+        <div
           key={s.src}
-          src={s.src}
-          alt={s.alt}
-          fill
-          priority={i === 0}
-          sizes="(min-width: 640px) 28rem, 100vw"
-          className={`object-cover ${
+          className={`absolute inset-0 ${
             reduced ? "" : "transition-opacity duration-1000 ease-in-out"
           } ${i === index ? "opacity-100" : "opacity-0"}`}
           aria-hidden={i === index ? undefined : true}
-        />
+        >
+          <Image
+            src={s.src}
+            alt={s.alt}
+            fill
+            priority={i === 0}
+            sizes="(min-width: 640px) 28rem, 100vw"
+            className="object-cover"
+          />
+          {s.caption && (
+            <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-dark/85 via-navy-dark/50 to-transparent px-5 pb-9 pt-14 text-sm font-bold text-white">
+              {s.caption}
+            </p>
+          )}
+        </div>
       ))}
 
       {count > 1 && (
