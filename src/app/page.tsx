@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content/site";
 import { services } from "@/content/services";
@@ -51,11 +52,20 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero — white, photo-led */}
+      {/* Hero — villa fretwork photo behind the headline (client request, Aug 2026) */}
       <section className="relative overflow-hidden border-b border-navy/10 bg-white">
+        <Image
+          src="/gallery/villa-verandahs-fretwork.jpg"
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         <div
           aria-hidden="true"
-          className="absolute -left-40 -top-40 h-[28rem] w-[28rem] rounded-full bg-brand-50 blur-3xl"
+          className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/55"
         />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-24">
           <div>

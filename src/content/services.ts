@@ -29,9 +29,10 @@ export const services: Service[] = [
         ],
       },
       {
+        // Shane's "main photo" from the Dropbox Interior Painting folder (Aug 2026).
         kind: "photo",
-        src: "/gallery/interior-hallway-arch.jpg",
-        alt: "Villa hallway with original arch and mouldings painted crisp white by PaintLink",
+        src: "/gallery/interior-main.jpg",
+        alt: "Freshly painted living room with soft pink panelled ceiling, white trim and polished timber floors",
       },
       {
         kind: "text",
@@ -311,12 +312,12 @@ export const services: Service[] = [
           },
           {
             before: {
-              src: "/gallery/roof-e-before.jpg",
-              alt: "Weathered red corrugated roof with chalky, failing paint and a skylight, viewed from the scaffold",
+              src: "/gallery/roof-tile-before.jpg",
+              alt: "Weathered concrete tile roof, faded and patchy with moss along the ridge, before restoration",
             },
             after: {
-              src: "/gallery/roof-after-charcoal.jpg",
-              alt: "The same corrugated roof after restoration, coated in charcoal grey",
+              src: "/gallery/roof-tile-after.jpg",
+              alt: "The same concrete tile roof after cleaning and recoating in charcoal grey",
             },
           },
           {
@@ -620,10 +621,11 @@ export const services: Service[] = [
         heading: "Before and after",
         pairs: [
           {
-            aspect: "4/3",
+            // Before photo swapped for the Dropbox one that matches the
+            // after shot's angle (client request, Aug 2026).
             before: {
-              src: "/gallery/cedar-restoration-before.jpg",
-              alt: "Weathered cedar gable and soffit, grey and blotchy with the coating failing, before restoration",
+              src: "/gallery/cedar-before-matched.jpg",
+              alt: "Weathered, faded cedar cladding and gable seen along the wall before restoration",
             },
             after: {
               src: "/gallery/cedar-restoration-after.jpg",
@@ -631,6 +633,16 @@ export const services: Service[] = [
             },
             caption:
               "The same gable end — weathered, oxidised cedar cleaned back, brightened and finished with a penetrating stain.",
+          },
+          {
+            before: {
+              src: "/gallery/cedar-dissent-before.jpg",
+              alt: "Vertical cedar gable with faded, patchy boards around full-height windows before re-staining",
+            },
+            after: {
+              src: "/gallery/cedar-dissent-after.jpg",
+              alt: "The same vertical cedar gable finished in a deep, even dark stain",
+            },
           },
         ],
       },

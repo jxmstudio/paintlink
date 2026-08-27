@@ -150,8 +150,9 @@ export default function VillaPage() {
           <div className="grid gap-4 sm:grid-cols-3">
             {[
               {
-                src: "/gallery/st-marys-bay-after.jpg",
-                alt: "Two-storey villa in St Marys Bay after a full exterior repaint by PaintLink",
+                // Swapped in for the dull shot at Shane's request (Aug 2026).
+                src: "/gallery/st-marys-22-finished-front.jpg",
+                alt: "Finished St Marys Bay villa in soft blue-grey with white trim, navy sashes and picket fence",
               },
               {
                 src: "/gallery/villa-exterior-1.jpg",

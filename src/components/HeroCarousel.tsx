@@ -64,7 +64,8 @@ export function HeroCarousel({
             className="object-cover"
           />
           {s.caption && (
-            <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-dark/85 via-navy-dark/50 to-transparent px-5 pb-9 pt-14 text-sm font-bold text-white">
+            // Oversized on purpose — the awards need to stand out (client request, Aug 2026).
+            <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-dark/90 via-navy-dark/55 to-transparent px-5 pb-10 pt-20 text-2xl font-extrabold leading-snug text-white drop-shadow-md sm:text-3xl">
               {s.caption}
             </p>
           )}

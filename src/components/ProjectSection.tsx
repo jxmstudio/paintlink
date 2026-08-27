@@ -1,8 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/content/projects";
 import { getService } from "@/content/services";
-import { BeforeAfterPhotos } from "@/components/BeforeAfter";
+import { ProjectGallery } from "@/components/ProjectGallery";
 
 export function ProjectSection({ project, flip }: { project: Project; flip: boolean }) {
   const services = project.services
@@ -11,47 +10,9 @@ export function ProjectSection({ project, flip }: { project: Project; flip: bool
 
   return (
     <article className="grid items-start gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-12">
-      {/* Photos */}
+      {/* Photos — every photo opens full size in the lightbox */}
       <div className={flip ? "lg:order-2" : ""}>
-        {project.beforeAfter ? (
-          <BeforeAfterPhotos pair={project.beforeAfter} />
-        ) : (
-          project.photos[0] && (
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-navy/10 shadow-sm">
-              <Image
-                src={project.photos[0].src}
-                alt={project.photos[0].alt}
-                fill
-                sizes="(min-width: 1024px) 40rem, 100vw"
-                className="object-cover"
-              />
-            </div>
-          )
-        )}
-
-        {/* Thumbnail row: remaining photos (skip the lead photo when it's the main image) */}
-        {(() => {
-          const thumbs = project.beforeAfter ? project.photos : project.photos.slice(1);
-          if (thumbs.length === 0) return null;
-          return (
-            <div className={`mt-3 grid gap-3 ${thumbs.length >= 4 ? "grid-cols-4" : "grid-cols-3"}`}>
-              {thumbs.map((photo) => (
-                <div
-                  key={photo.src}
-                  className="relative aspect-square overflow-hidden rounded-lg border border-navy/10"
-                >
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    fill
-                    sizes="(min-width: 1024px) 10rem, 25vw"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          );
-        })()}
+        <ProjectGallery beforeAfter={project.beforeAfter} photos={project.photos} />
       </div>
 
       {/* Write-up */}
