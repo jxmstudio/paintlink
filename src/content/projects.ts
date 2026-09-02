@@ -132,8 +132,9 @@ export const projects: Project[] = [
     title: "St Marys Bay villa",
     location: "St Marys Bay",
     services: ["exterior-painting", "paint-stripping-removal"],
+    // Write-up supplied by Shane (Dropbox screenshot, Aug 2026).
     summary:
-      "A full exterior restoration of a two-storey character villa — weatherboards and joinery stripped back where the old coatings had failed, sash windows re-puttied and eased, and the whole exterior repainted in fresh whites and greys. The front door and stained-glass entry were restored to match.",
+      "This villa required a full exterior strip and extensive timber rot repairs before we could even begin painting. We thought we'd do something a little different with this project. These finished photos weren't taken when the job was completed — they were taken five years later. We returned to carry out a few minor touch-ups before the owners put the property on the market, giving us the perfect opportunity to photograph it again. Five years after completion, the paintwork still looks like it was finished yesterday. A great example of what proper preparation, quality materials and a thorough painting system can achieve.",
     beforeAfter: {
       before: {
         src: "/gallery/st-marys-bay-before.jpg",

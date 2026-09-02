@@ -127,9 +127,8 @@ function Lightbox({
         </>
       )}
 
-      <p className="pb-5 text-center text-sm text-white/70" onClick={(e) => e.stopPropagation()}>
-        {photo.alt}
-      </p>
+      {/* No caption under the photo — removed at client's request (Sep 2026). */}
+      <div className="pb-5" />
     </div>
   );
 }

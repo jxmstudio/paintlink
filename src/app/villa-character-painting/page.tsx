@@ -54,9 +54,11 @@ const expertise = [
   {
     title: "Heritage weatherboard exteriors",
     text: "Hundreds of metres of kauri weatherboard, scraped, primed and repainted properly — with rot repairs and re-puttying along the way.",
+    // Was the same blue villa as the strip above — swapped for Shane's
+    // "1st photo" (client request, Sep 2026).
     image: {
-      src: "/gallery/villa-weatherboard-exteriors.jpg",
-      alt: "Weatherboard villa exterior repainted in soft blue with white and navy trim",
+      src: "/gallery/villa-porch-red-doors.jpg",
+      alt: "Villa porch with arched fretwork, white columns and deep red doors, freshly repainted",
     },
   },
   {

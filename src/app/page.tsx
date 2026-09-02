@@ -61,11 +61,12 @@ export default function HomePage() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-bottom"
         />
+        {/* Overlay kept light so the villa reads in full colour (client request, Sep 2026). */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/55"
+          className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/45 to-white/10"
         />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-24">
           <div>
@@ -109,13 +110,23 @@ export default function HomePage() {
 
       {/* Services */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+        {/* Copy supplied by Shane (Dropbox Main Page folder, Sep 2026). */}
         <div className="max-w-2xl">
           <h2 className="text-3xl font-extrabold tracking-tight text-navy">
-            Painting services for every job
+            Award-winning painters you can rely on.
           </h2>
           <p className="mt-3 text-navy-dark/70">
-            One team for the whole property — inside, outside, roof and grounds. Every service
-            starts with proper preparation and ends with a finish we’d put our name on.
+            Our award-winning team provides professional interior, exterior and roof
+            painting, with thorough preparation and attention to detail from start to
+            finish.
+          </p>
+          <p className="mt-3 text-navy-dark/70">
+            <strong className="font-bold text-navy">
+              Every photo on our website is from a project we&rsquo;ve completed &mdash; we
+              don&rsquo;t use stock photography.
+            </strong>{" "}
+            What you see is our own work and a genuine representation of the standard we
+            deliver.
           </p>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

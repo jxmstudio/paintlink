@@ -9,9 +9,10 @@ export const services: Service[] = [
     metaDescription:
       "Professional interior painting across West & Central Auckland. Walls, ceilings, trim and doors — clean prep, sharp lines and a tidy finish. Free quotes since 2018.",
     h1: "Interior Painting in Auckland",
+    // Arch hallway swapped for Shane's "main photo" (client request, Sep 2026).
     image: {
-      src: "/gallery/interior-1.jpg",
-      alt: "Villa hallway with original archway and mouldings painted crisp white by PaintLink",
+      src: "/gallery/interior-main.jpg",
+      alt: "Freshly painted living room with soft pink panelled ceiling, white trim and polished timber floors",
     },
     blurb:
       "Walls, ceilings, trim and doors — careful prep and a flawless finish that transforms your rooms.",
@@ -29,10 +30,11 @@ export const services: Service[] = [
         ],
       },
       {
-        // Shane's "main photo" from the Dropbox Interior Painting folder (Aug 2026).
+        // The pink-ceiling shot moved up to the page image; this slot now runs
+        // the green-and-yellow interior (client request, Sep 2026).
         kind: "photo",
-        src: "/gallery/interior-main.jpg",
-        alt: "Freshly painted living room with soft pink panelled ceiling, white trim and polished timber floors",
+        src: "/gallery/interior-8.jpg",
+        alt: "Bold green and yellow feature walls beside natural timber panelling",
       },
       {
         kind: "text",
@@ -543,12 +545,25 @@ export const services: Service[] = [
     },
     blurb:
       "Outdoor timber washed, prepped and protected — stains and paints that stand up to sun and rain.",
-    intro: [
-      "Your deck and fence are exposed to New Zealand’s harsh weather every day. Constant sun, rain, moisture, and foot traffic gradually break down timber, causing it to fade, crack, split, and weather over time.",
-      "Whether you’re looking to restore natural timber with a stain or completely transform it with paint, proper preparation and the right coating system are essential. Our professional restoration process protects your timber, enhances its appearance, and helps extend its lifespan for years to come.",
-    ],
-    sections: [
+    // Body comes from `blocks` below (converted so the red fence photo could be
+    // added mid-page — client request, Sep 2026). Edit `blocks`, not intro/sections.
+    intro: [],
+    sections: [],
+    blocks: [
       {
+        kind: "text",
+        body: [
+          "Your deck and fence are exposed to New Zealand’s harsh weather every day. Constant sun, rain, moisture, and foot traffic gradually break down timber, causing it to fade, crack, split, and weather over time.",
+          "Whether you’re looking to restore natural timber with a stain or completely transform it with paint, proper preparation and the right coating system are essential. Our professional restoration process protects your timber, enhances its appearance, and helps extend its lifespan for years to come.",
+        ],
+      },
+      {
+        kind: "photo",
+        src: "/gallery/deck-fence-1.jpg",
+        alt: "Timber boundary fence and retaining walls stained a rich dark brown, with a freshly built deck alongside",
+      },
+      {
+        kind: "text",
         heading: "Professional Deck & Fence Restoration",
         body: [
           "A long-lasting finish starts with proper preparation. Our process includes:",
@@ -561,6 +576,13 @@ export const services: Service[] = [
         ],
       },
       {
+        // The red fence shot from Shane's Dropbox (Sep 2026).
+        kind: "photo",
+        src: "/gallery/deck-red-fence.jpg",
+        alt: "Modern horizontal-slat timber fence freshly painted deep red, with palms behind",
+      },
+      {
+        kind: "text",
         heading: "Fences, pergolas and outdoor timber",
         body: [
           "We handle boundary fences, pool fences, pergolas, retaining walls, garden structures and outdoor furniture. Spray application makes bigger runs of fencing quick and economical, with brushed detail where it counts. A freshly stained fence line is one of the cheapest big improvements you can make to a property's street appeal.",
