@@ -54,34 +54,34 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero — villa fretwork photo behind the headline (client request, Aug 2026) */}
+      {/* Hero — Valley Rd courtyard photo behind the H1, per Shane's mockup (Sep 2026) */}
       <section className="relative overflow-hidden border-b border-navy/10 bg-white">
         <Image
-          src="/gallery/villa-verandahs-fretwork.jpg"
+          src="/gallery/valley-rd-courtyard.jpg"
           alt=""
           aria-hidden="true"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-bottom"
+          className="object-cover"
         />
-        {/* Overlay kept light so the villa reads in full colour (client request, Sep 2026). */}
+        {/* Gradient stays soft so the photo reads in full colour (client request, Sep 2026). */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/45 to-white/10"
+          className="absolute inset-0 bg-gradient-to-r from-navy-dark/75 via-navy-dark/45 to-navy-dark/15"
         />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-24">
           <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-brand">
+            <p className="text-sm font-bold uppercase tracking-widest text-white/90">
               West &amp; Central Auckland Painters
             </p>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-navy sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
               Trusted Auckland Painters for Homes &amp; Businesses
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-navy-dark/75">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/90">
               Looking for reliable Auckland painters who deliver quality workmanship that
               lasts? PaintLink provides professional{" "}
-              <strong className="font-bold text-navy">
+              <strong className="font-bold text-white">
                 interior painting, exterior painting, roof painting, commercial painting, and
                 villa restoration
               </strong>{" "}
@@ -96,7 +96,7 @@ export default function HomePage() {
               </Link>
               <a
                 href={site.phoneHref}
-                className="flex items-center justify-center gap-2 rounded-lg border border-navy/25 px-7 py-4 text-base font-bold text-navy transition-colors hover:border-brand hover:text-brand"
+                className="flex items-center justify-center gap-2 rounded-lg border border-white/40 px-7 py-4 text-base font-bold text-white transition-colors hover:border-white hover:bg-white/10"
               >
                 <PhoneIcon className="h-5 w-5" />
                 {site.phone}
