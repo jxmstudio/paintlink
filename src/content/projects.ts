@@ -316,12 +316,12 @@ export const projects: Project[] = [
     },
     photos: [
       {
-        src: "/gallery/valley-rd-front.jpg",
-        alt: "Finished Valley Rd character bungalow with fretwork arches, white columns and red-trimmed windows",
-      },
-      {
         src: "/gallery/valley-rd-prep-columns.jpg",
         alt: "Porch columns and balustrade stripped back to bare timber during preparation",
+      },
+      {
+        src: "/gallery/valley-rd-front.jpg",
+        alt: "Finished Valley Rd character bungalow with fretwork arches, white columns and red-trimmed windows",
       },
       {
         src: "/gallery/valley-rd-porch.jpg",
