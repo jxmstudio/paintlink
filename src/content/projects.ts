@@ -301,8 +301,45 @@ export const projects: Project[] = [
   {
     title: "Valley Rd character home",
     location: "Mt Eden",
-    services: ["exterior-painting"],
-    photos: [],
+    services: ["interior-painting", "exterior-painting"],
+    summary:
+      "The complete interior and exterior painting of a character Auckland bungalow following an extensive renovation and extension. Careful preparation was a major part of the project — older surfaces and detailed timberwork across the original home needed extra attention, and inside we worked across a mix of original features and new finishes for a consistent, high-quality result. Particular attention went to the weatherboards, trims and detailed exterior elements, and the finished painting contributed to what became an award-winning home.",
+    beforeAfter: {
+      before: {
+        src: "/gallery/valley-rd-before.jpg",
+        alt: "Valley Rd bungalow wrapped in scaffold during preparation, seen from the street steps",
+      },
+      after: {
+        src: "/gallery/valley-rd-after.jpg",
+        alt: "Valley Rd bungalow finished in soft blue-grey with deep red joinery, seen from the same street steps",
+      },
+    },
+    photos: [
+      {
+        src: "/gallery/valley-rd-front.jpg",
+        alt: "Finished Valley Rd character bungalow with fretwork arches, white columns and red-trimmed windows",
+      },
+      {
+        src: "/gallery/valley-rd-prep-columns.jpg",
+        alt: "Porch columns and balustrade stripped back to bare timber during preparation",
+      },
+      {
+        src: "/gallery/valley-rd-porch.jpg",
+        alt: "Repainted veranda with deep red French doors and fresh blue-grey weatherboards",
+      },
+      {
+        src: "/gallery/valley-rd-hallway.jpg",
+        alt: "Repainted hallway through original glazed double doors, with stained glass above the front door",
+      },
+      {
+        src: "/gallery/valley-rd-window-seat.jpg",
+        alt: "Timber-lined window seat in the new extension looking out to the garden",
+      },
+      {
+        src: "/gallery/valley-rd-rear-pool.jpg",
+        alt: "Rear of the extended bungalow at dusk with new deck and pool",
+      },
+    ],
   },
   {
     title: "Grey Lynn villa",
@@ -311,10 +348,41 @@ export const projects: Project[] = [
     photos: [],
   },
   {
-    title: "Te Arai farm house",
+    title: "Te Arai rural escape",
     location: "Te Arai",
-    services: ["exterior-painting"],
-    photos: [],
+    services: ["interior-painting", "exterior-painting"],
+    summary:
+      "An architectural new build designed as a rural getaway, combining contemporary architecture with natural materials that complement the surrounding landscape. The painting involved considerably more than applying colour — from interior painting and detailed clear coating of exposed timber to exterior staining and specialist two-pack coatings, each surface required its own preparation, products and application methods. The result is a durable, carefully detailed finish that lets the architecture, natural timber and rural character of this Te Arai retreat stand out.",
+    photos: [
+      {
+        src: "/gallery/te-arai-exterior.jpg",
+        alt: "Brick and glass corner of the Te Arai new build under a wide painted soffit, with planted rock garden",
+      },
+      {
+        src: "/gallery/te-arai-deck.jpg",
+        alt: "Covered outdoor dining deck at Te Arai looking out over the rural landscape",
+      },
+      {
+        src: "/gallery/te-arai-front.jpg",
+        alt: "Front elevation of the single-level Te Arai home set on a grassy rise",
+      },
+      {
+        src: "/gallery/te-arai-living.jpg",
+        alt: "Open-plan living room with green-stained timber kitchen joinery and full-height glazing",
+      },
+      {
+        src: "/gallery/te-arai-courtyard.jpg",
+        alt: "Sheltered brick courtyard with outdoor fireplace and timber chairs",
+      },
+      {
+        src: "/gallery/te-arai-cedar.jpg",
+        alt: "Green-stained cedar courtyard walls above brickwork, with chimney flue against the sky",
+      },
+      {
+        src: "/gallery/te-arai-bathroom.jpg",
+        alt: "Bathroom with green mosaic-tiled shower, timber vanity and stone basin",
+      },
+    ],
   },
   {
     title: "Te Atatū minor dwelling",

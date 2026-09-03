@@ -36,6 +36,8 @@ const heroSlides = [
 ];
 
 const projectTiles = [
+  { src: "/gallery/valley-rd-front.jpg", alt: "Character bungalow in Mt Eden repainted in blue-grey with red joinery", label: "Character bungalow" },
+  { src: "/gallery/te-arai-exterior.jpg", alt: "Architectural new build in Te Arai with brick, glass and stained cedar", label: "Architectural new build" },
   { src: "/gallery/st-marys-bay-after.jpg", alt: "Villa in St Marys Bay after a full exterior repaint", label: "Villa repaint" },
   { src: "/gallery/exterior-job-1.jpg", alt: "Modern home exterior painted deep crimson", label: "Exterior repaint" },
   { src: "/gallery/roof-after-charcoal.jpg", alt: "Iron roof recoated in charcoal grey", label: "Roof restoration" },
