@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { services } from "@/content/services";
 import { locations } from "@/content/locations";
+import { projectsWithPages } from "@/content/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -32,6 +33,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${site.url}/areas/${l.slug}`,
       lastModified,
       priority: 0.7,
+    })),
+    ...projectsWithPages().map((p) => ({
+      url: `${site.url}/projects/${p.slug}`,
+      lastModified,
+      priority: 0.6,
     })),
   ];
 }

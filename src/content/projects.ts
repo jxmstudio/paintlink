@@ -1,33 +1,44 @@
 // Recent projects — the job list Shane supplied (August 2026), in his order.
 //
-// Projects with photos render as full sections. The rest render as a compact
-// "coming soon" list until the photos arrive.
+// The projects page follows the wgb.co.nz layout Shane asked for (Sept 2026):
+// an index of cards, each linking to its own /projects/[slug] page with the
+// full write-up and photo gallery. Projects without photos render as a compact
+// "coming soon" list on the index until the photos arrive.
 //
 // TODO (Shane): for each project still marked `photos: []`, send through the
 // photos and a sentence or two about the job, and we'll promote it to a full
-// section. Before/after pairs are especially good — they carry the page.
+// project page. Before/after pairs are especially good — they carry the page.
 
 import type { BeforeAfterPair, Photo } from "./types";
 
 export type Project = {
+  slug: string;
   title: string;
   location?: string;
   /** Service slugs — rendered as linked tags. */
   services: string[];
-  /** Omitted for projects still awaiting details from Shane. */
-  summary?: string;
+  /** One-liner under the title on the projects index card. */
+  tagline?: string;
+  /** Subheading at the top of the project's own page. */
+  subtitle?: string;
+  /** Full write-up, one string per paragraph, shown on the project's page. */
+  writeUp?: string[];
   /** Optional before/after pair, shown with Before/After badges. */
   beforeAfter?: BeforeAfterPair;
-  /** Remaining photos for the project. First one leads. */
+  /** Remaining photos for the project. First one leads on the index card. */
   photos: Photo[];
 };
 
 export const projects: Project[] = [
   {
+    slug: "commercial-jobs",
     title: "Commercial jobs",
     services: ["commercial-painting", "exterior-painting"],
-    summary:
+    tagline: "Offices, retail and multi-unit buildings, painted around live tenancies.",
+    subtitle: "Painting that works around live businesses",
+    writeUp: [
       "Offices, retail and multi-unit buildings across Auckland, worked from elevated platforms and scaffold so trading and tenancies carry on around us. Staged programmes, after-hours work where it's needed, and a fixed scope signed off before we start.",
+    ],
     photos: [
       {
         src: "/gallery/commercial-1.jpg",
@@ -36,11 +47,16 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "royal-road-school",
     title: "Royal Road School",
     location: "Massey",
     services: ["school-painting", "interior-painting", "exterior-painting", "roof-painting"],
-    summary:
-      "Royal Road School contacted us to freshen up and maintain a number of their buildings, with a mix of interior and exterior painting required across the school — the interior of the hall and lunchroom, the hall roof, a large classroom block exterior, the library, toilet blocks, front desk, staffroom and administration areas. With a large amount of work to complete while keeping disruption to the school to a minimum, the project was scheduled over the Christmas holiday period, and our team completed the full scope on time and on budget, ready for students and staff to return for the new school year.",
+    tagline: "A full interior and exterior repaint, delivered over the school holidays.",
+    subtitle: "The whole campus refreshed over the Christmas break",
+    writeUp: [
+      "Royal Road School contacted us to freshen up and maintain a number of their buildings, with a mix of interior and exterior painting required across the school — the interior of the hall and lunchroom, the hall roof, a large classroom block exterior, the library, toilet blocks, front desk, staffroom and administration areas.",
+      "With a large amount of work to complete while keeping disruption to the school to a minimum, the project was scheduled over the Christmas holiday period, and our team completed the full scope on time and on budget, ready for students and staff to return for the new school year.",
+    ],
     photos: [
       {
         src: "/gallery/school-1.jpg",
@@ -129,12 +145,17 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "st-marys-bay-villa",
     title: "St Marys Bay villa",
     location: "St Marys Bay",
     services: ["exterior-painting", "paint-stripping-removal"],
+    tagline: "Stripped to bare timber, restored — and still flawless five years on.",
+    subtitle: "Proper preparation, proven five years later",
     // Write-up supplied by Shane (Dropbox screenshot, Aug 2026).
-    summary:
-      "This villa required a full exterior strip and extensive timber rot repairs before we could even begin painting. We thought we'd do something a little different with this project. These finished photos weren't taken when the job was completed — they were taken five years later. We returned to carry out a few minor touch-ups before the owners put the property on the market, giving us the perfect opportunity to photograph it again. Five years after completion, the paintwork still looks like it was finished yesterday. A great example of what proper preparation, quality materials and a thorough painting system can achieve.",
+    writeUp: [
+      "This villa required a full exterior strip and extensive timber rot repairs before we could even begin painting. We thought we'd do something a little different with this project. These finished photos weren't taken when the job was completed — they were taken five years later.",
+      "We returned to carry out a few minor touch-ups before the owners put the property on the market, giving us the perfect opportunity to photograph it again. Five years after completion, the paintwork still looks like it was finished yesterday. A great example of what proper preparation, quality materials and a thorough painting system can achieve.",
+    ],
     beforeAfter: {
       before: {
         src: "/gallery/st-marys-bay-before.jpg",
@@ -299,11 +320,20 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "valley-rd-mt-eden",
     title: "Valley Rd character home",
     location: "Mt Eden",
     services: ["interior-painting", "exterior-painting"],
-    summary:
-      "The complete interior and exterior painting of a character Auckland bungalow following an extensive renovation and extension. Careful preparation was a major part of the project — older surfaces and detailed timberwork across the original home needed extra attention, and inside we worked across a mix of original features and new finishes for a consistent, high-quality result. Particular attention went to the weatherboards, trims and detailed exterior elements, and the finished painting contributed to what became an award-winning home.",
+    tagline: "Character kept, contemporary finish delivered — an award-winning Mt Eden home.",
+    subtitle: "Complete repaint of a character bungalow and its contemporary extension",
+    // Write-up supplied by Shane (Dropbox screenshot, Sept 2026), in full.
+    writeUp: [
+      "This Mt Eden project involved the complete interior and exterior painting of a character Auckland bungalow following an extensive renovation and extension.",
+      "Paint Link was brought in to complete the painting throughout the original home and the new contemporary addition. Careful preparation was a major part of the project, particularly across the existing character areas where older surfaces and detailed timberwork required extra attention before painting.",
+      "Inside, we completed the full painting of the renovated and newly built spaces, working across a combination of original features and new finishes to achieve a consistent, high-quality result throughout the home.",
+      "Externally, the house was fully prepared and painted, including the original bungalow and new addition. Particular attention was given to the weatherboards, trims and detailed exterior elements to ensure a sharp finish and long-term protection.",
+      "The finished painting complemented the transformation of the property and contributed to what became an award-winning home, delivering a finish appropriate to the quality of the overall build.",
+    ],
     beforeAfter: {
       before: {
         src: "/gallery/valley-rd-before.jpg",
@@ -314,46 +344,178 @@ export const projects: Project[] = [
         alt: "Valley Rd bungalow finished in soft blue-grey with deep red joinery, seen from the same street steps",
       },
     },
+    // Shane's Dropbox set (Sept 2026), in the order he asked for:
+    // start of job → prep → finished exterior → interiors.
     photos: [
+      // Start of job
+      {
+        src: "/gallery/valley-rd-scaffold-start.jpg",
+        alt: "Scaffolding going up across the front verandah of the Valley Rd bungalow at the start of the job",
+      },
+      {
+        src: "/gallery/valley-rd-start-wrapped-roof.jpg",
+        alt: "The bungalow shrink-wrapped for weather protection with weatherboards sanded back in patches",
+      },
+      // Prep
       {
         src: "/gallery/valley-rd-prep-columns.jpg",
         alt: "Porch columns and balustrade stripped back to bare timber during preparation",
       },
       {
+        src: "/gallery/valley-rd-prep-verandah-arches.jpg",
+        alt: "Verandah arches and columns stripped to bare timber behind the scaffold",
+      },
+      {
+        src: "/gallery/valley-rd-prep-window-joinery.jpg",
+        alt: "Bay window joinery stripped back to bare timber on the scaffold deck",
+      },
+      {
+        src: "/gallery/valley-rd-prep-weatherboards.jpg",
+        alt: "Weatherboards sanded back to bare timber around new window joinery before priming",
+      },
+      // Finished exterior
+      {
         src: "/gallery/valley-rd-front.jpg",
         alt: "Finished Valley Rd character bungalow with fretwork arches, white columns and red-trimmed windows",
+      },
+      {
+        src: "/gallery/valley-rd-ext-wide.jpg",
+        alt: "Wide view of the finished bungalow in soft blue-grey under a dramatic sky",
+      },
+      {
+        src: "/gallery/valley-rd-ext-front-corner.jpg",
+        alt: "Front corner of the finished bungalow with red-trimmed windows and fresh landscaping",
+      },
+      {
+        src: "/gallery/valley-rd-ext-porch-bay.jpg",
+        alt: "Repainted front porch and bay window with deep red joinery against blue-grey weatherboards",
+      },
+      {
+        src: "/gallery/valley-rd-ext-bay-window.jpg",
+        alt: "Finished bay window with deep red frames and crisp white trim from the driveway",
+      },
+      {
+        src: "/gallery/valley-rd-ext-porch-doors.jpg",
+        alt: "Front porch with deep red doors, stained glass and freshly painted blue-grey floor",
       },
       {
         src: "/gallery/valley-rd-porch.jpg",
         alt: "Repainted veranda with deep red French doors and fresh blue-grey weatherboards",
       },
       {
+        src: "/gallery/valley-rd-ext-porch-closeup.jpg",
+        alt: "Close view of the finished porch with red French doors and detailed white columns",
+      },
+      {
+        src: "/gallery/valley-rd-ext-columns.jpg",
+        alt: "Verandah columns and fretwork arches freshly painted, looking up from the porch",
+      },
+      {
+        src: "/gallery/valley-rd-ext-gable-arches.jpg",
+        alt: "Gable and arched verandah detail with red-trimmed window after repainting",
+      },
+      {
+        src: "/gallery/valley-rd-ext-verandah-door.jpg",
+        alt: "Verandah with white columns and deep red front door after repainting",
+      },
+      {
+        src: "/gallery/valley-rd-ext-verandah-walkway.jpg",
+        alt: "Repainted verandah walkway with red French doors and blue-grey deck",
+      },
+      {
+        src: "/gallery/valley-rd-ext-balustrade.jpg",
+        alt: "Freshly painted white balustrade running along the side of the house",
+      },
+      {
+        src: "/gallery/valley-rd-porch-chairs.jpg",
+        alt: "Finished porch with black wire chairs, red-trimmed windows and French doors",
+      },
+      {
+        src: "/gallery/valley-rd-courtyard.jpg",
+        alt: "Rear courtyard of the extended bungalow with stone pavers, mature tree and swing",
+      },
+      {
+        src: "/gallery/valley-rd-rear-extension.jpg",
+        alt: "Rear of the extended bungalow with painted weatherboards opening onto the deck and garden",
+      },
+      {
+        src: "/gallery/valley-rd-rear-pool.jpg",
+        alt: "Rear of the extended bungalow at dusk with new deck and pool",
+      },
+      // Interiors
+      {
         src: "/gallery/valley-rd-hallway.jpg",
         alt: "Repainted hallway through original glazed double doors, with stained glass above the front door",
+      },
+      {
+        src: "/gallery/valley-rd-bedroom-door.jpg",
+        alt: "Original panelled door and stained-glass window freshly painted in the character part of the home",
+      },
+      {
+        src: "/gallery/valley-rd-dining-kitchen.jpg",
+        alt: "Dining space in the new extension with high painted ceilings and timber kitchen beyond",
+      },
+      {
+        src: "/gallery/valley-rd-kitchen-island.jpg",
+        alt: "Timber kitchen island under a freshly painted raked ceiling in the new extension",
+      },
+      {
+        src: "/gallery/valley-rd-kitchenette.jpg",
+        alt: "Butler's pantry with blue tiled splashback, timber cabinetry and open shelving",
+      },
+      {
+        src: "/gallery/valley-rd-ceiling-beams.jpg",
+        alt: "Original ceiling beams painted in soft blue in a character room with leadlight windows",
       },
       {
         src: "/gallery/valley-rd-window-seat.jpg",
         alt: "Timber-lined window seat in the new extension looking out to the garden",
       },
       {
-        src: "/gallery/valley-rd-rear-pool.jpg",
-        alt: "Rear of the extended bungalow at dusk with new deck and pool",
+        src: "/gallery/valley-rd-window-seat-2.jpg",
+        alt: "Window seat with cushions framed in timber, looking out over the rear garden",
+      },
+      {
+        src: "/gallery/valley-rd-tv-room.jpg",
+        alt: "Timber-panelled media room with open shelving and freshly painted ceiling",
+      },
+      {
+        src: "/gallery/valley-rd-shelving.jpg",
+        alt: "Open timber shelving between the kitchen and living spaces of the extension",
+      },
+      {
+        src: "/gallery/valley-rd-stair-detail.jpg",
+        alt: "Freshly painted stair detail where the new joinery meets the original home",
       },
     ],
   },
   {
+    slug: "grey-lynn-villa",
     title: "Grey Lynn villa",
     location: "Grey Lynn",
     services: ["exterior-painting", "paint-stripping-removal"],
     photos: [],
   },
   {
+    slug: "te-arai-rural-escape",
     title: "Te Arai rural escape",
     location: "Te Arai",
     services: ["interior-painting", "exterior-painting"],
-    summary:
-      "An architectural new build designed as a rural getaway, combining contemporary architecture with natural materials that complement the surrounding landscape. The painting involved considerably more than applying colour — from interior painting and detailed clear coating of exposed timber to exterior staining and specialist two-pack coatings, each surface required its own preparation, products and application methods. The result is a durable, carefully detailed finish that lets the architecture, natural timber and rural character of this Te Arai retreat stand out.",
+    tagline: "A finish built around the architecture of a rural getaway.",
+    // Heading supplied by Shane (Dropbox screenshot, Sept 2026).
+    subtitle: "A finish built around the architecture",
+    // Write-up supplied by Shane (Dropbox screenshot, Sept 2026), in full.
+    writeUp: [
+      "This architectural new build in Te Arai was designed as a rural getaway, combining contemporary architecture with natural materials that complement the surrounding landscape.",
+      "Painting involved considerably more than simply applying colour. From the interior painting and detailed clear coating of exposed timber to exterior staining and specialist two-pack coatings, each surface required its own preparation, products and application methods.",
+      "The result is a durable, carefully detailed finish that protects the different materials while allowing the architecture, natural timber features and rural character of this Te Arai retreat to stand out.",
+    ],
     photos: [
+      // Exterior and courtyard
+      {
+        src: "/gallery/te-arai-front.jpg",
+        alt: "Front elevation of the single-level Te Arai home set on a grassy rise",
+      },
       {
         src: "/gallery/te-arai-exterior.jpg",
         alt: "Brick and glass corner of the Te Arai new build under a wide painted soffit, with planted rock garden",
@@ -363,20 +525,49 @@ export const projects: Project[] = [
         alt: "Covered outdoor dining deck at Te Arai looking out over the rural landscape",
       },
       {
-        src: "/gallery/te-arai-front.jpg",
-        alt: "Front elevation of the single-level Te Arai home set on a grassy rise",
+        src: "/gallery/te-arai-courtyard.jpg",
+        alt: "Sheltered brick courtyard with outdoor fireplace and timber chairs",
       },
+      {
+        src: "/gallery/te-arai-courtyard-corner.jpg",
+        alt: "Sheltered courtyard corner with timber chairs opening off the living space",
+      },
+      {
+        src: "/gallery/te-arai-courtyard-doors.jpg",
+        alt: "Full-height glazed doors folded open between the living space and brick courtyard",
+      },
+      {
+        src: "/gallery/te-arai-cedar.jpg",
+        alt: "Green-stained cedar courtyard walls above brickwork, with chimney flue against the sky",
+      },
+      // Interiors
       {
         src: "/gallery/te-arai-living.jpg",
         alt: "Open-plan living room with green-stained timber kitchen joinery and full-height glazing",
       },
       {
-        src: "/gallery/te-arai-courtyard.jpg",
-        alt: "Sheltered brick courtyard with outdoor fireplace and timber chairs",
+        src: "/gallery/te-arai-living-fireplace.jpg",
+        alt: "Living room with freestanding fireplace, soft furnishings and views over the farmland",
       },
       {
-        src: "/gallery/te-arai-cedar.jpg",
-        alt: "Green-stained cedar courtyard walls above brickwork, with chimney flue against the sky",
+        src: "/gallery/te-arai-fireplace.jpg",
+        alt: "Freestanding black fireplace on a stone hearth beside full-height glazing",
+      },
+      {
+        src: "/gallery/te-arai-dining.jpg",
+        alt: "Timber dining table and chairs beside the green-stained kitchen joinery",
+      },
+      {
+        src: "/gallery/te-arai-dining-view.jpg",
+        alt: "Dining space with polished concrete floor and full-height glazing to the landscape",
+      },
+      {
+        src: "/gallery/te-arai-bedroom.jpg",
+        alt: "Bedroom with picture window framing the rural outlook, timber sill clear-coated",
+      },
+      {
+        src: "/gallery/te-arai-bunk-room.jpg",
+        alt: "Bunk room with green-stained timber bunks and soft pink carpet",
       },
       {
         src: "/gallery/te-arai-bathroom.jpg",
@@ -385,36 +576,50 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "te-atatu-minor-dwelling",
     title: "Te Atatū minor dwelling",
     location: "Te Atatū",
     services: ["interior-painting", "exterior-painting"],
     photos: [],
   },
   {
+    slug: "sandringham-minor-dwelling",
     title: "Sandringham minor dwelling",
     location: "Sandringham",
     services: ["interior-painting", "exterior-painting"],
     photos: [],
   },
   {
+    slug: "mt-albert-villa-extension",
     title: "Mt Albert villa extension",
     location: "Mt Albert",
     services: ["interior-painting", "exterior-painting"],
     photos: [],
   },
   {
+    slug: "mt-eden-road-character-home",
     title: "Mt Eden Road character home",
     location: "Mt Eden",
     services: ["exterior-painting"],
     photos: [],
   },
   {
+    slug: "laingholm-character-home",
     title: "Laingholm character home",
     location: "Laingholm",
     services: ["exterior-painting"],
     photos: [],
   },
 ];
+
+export function getProject(slug: string): Project | undefined {
+  return projects.find((p) => p.slug === slug);
+}
+
+/** Projects with photos get their own /projects/[slug] page. */
+export function projectsWithPages(): Project[] {
+  return projects.filter((p) => p.photos.length > 0 || p.beforeAfter);
+}
 
 /**
  * Photos from jobs that haven't been matched to a named project yet. Shown as
