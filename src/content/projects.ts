@@ -25,6 +25,12 @@ export type Project = {
   writeUp?: string[];
   /** Optional before/after pair, shown with Before/After badges. */
   beforeAfter?: BeforeAfterPair;
+  /**
+   * The project's main photo. Leads on the index card and the project page,
+   * ahead of the before/after pair. Falls back to the pair's "after", then
+   * the first of `photos`.
+   */
+  mainPhoto?: Photo;
   /** Remaining photos for the project. First one leads on the index card. */
   photos: Photo[];
 };
@@ -334,6 +340,12 @@ export const projects: Project[] = [
       "Externally, the house was fully prepared and painted, including the original bungalow and new addition. Particular attention was given to the weatherboards, trims and detailed exterior elements to ensure a sharp finish and long-term protection.",
       "The finished painting complemented the transformation of the property and contributed to what became an award-winning home, delivering a finish appropriate to the quality of the overall build.",
     ],
+    // Shane's "valley rd main photo" — the bright finished front shot leads
+    // the page and the index card (client request, Sep 2026).
+    mainPhoto: {
+      src: "/gallery/valley-rd-front.jpg",
+      alt: "The finished Valley Rd bungalow in soft blue-grey with red joinery under a bright sky",
+    },
     beforeAfter: {
       before: {
         src: "/gallery/valley-rd-before.jpg",
@@ -373,11 +385,7 @@ export const projects: Project[] = [
         src: "/gallery/valley-rd-prep-weatherboards.jpg",
         alt: "Weatherboards sanded back to bare timber around new window joinery before priming",
       },
-      // Finished exterior
-      {
-        src: "/gallery/valley-rd-front.jpg",
-        alt: "Finished Valley Rd character bungalow with fretwork arches, white columns and red-trimmed windows",
-      },
+      // Finished exterior (the bright front shot now leads the page as mainPhoto)
       {
         src: "/gallery/valley-rd-ext-wide.jpg",
         alt: "Wide view of the finished bungalow in soft blue-grey under a dramatic sky",

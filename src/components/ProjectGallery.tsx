@@ -219,55 +219,62 @@ export function ProjectGallery({
  * `children` is the server-rendered write-up column.
  */
 export function ProjectShowcase({
+  mainPhoto,
   beforeAfter,
   photos,
   children,
 }: {
+  mainPhoto?: Photo;
   beforeAfter?: BeforeAfterPair;
   photos: Photo[];
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState<number | null>(null);
 
-  // Lightbox order: before/after first (when present), then the photo set.
-  const all: Photo[] = beforeAfter ? [beforeAfter.before, beforeAfter.after, ...photos] : photos;
-  // Without a before/after pair the first photo leads beside the write-up, so
-  // the grid starts from the second.
-  const gridPhotos = beforeAfter ? photos : photos.slice(1);
+  // The photo leading beside the write-up: mainPhoto when set, else the first
+  // of `photos` when there's no before/after pair to lead instead.
+  const lead = mainPhoto ?? (beforeAfter ? undefined : photos[0]);
+  // Lightbox order matches display order: lead, before/after, then the set.
+  const all: Photo[] = [
+    ...(lead ? [lead] : []),
+    ...(beforeAfter ? [beforeAfter.before, beforeAfter.after] : []),
+    ...photos,
+  ];
+  const gridPhotos = lead && !mainPhoto ? photos.slice(1) : photos;
   const gridOffset = all.length - gridPhotos.length;
+  const pairOffset = lead ? 1 : 0;
 
   return (
     <>
       <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
         <div>{children}</div>
         <div>
-          {beforeAfter ? (
+          {lead && (
             <button
               type="button"
               onClick={() => setOpen(0)}
+              aria-label="View photo full size"
+              className="relative block aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-2xl border border-navy/10 shadow-sm"
+            >
+              <Image
+                src={lead.src}
+                alt={lead.alt}
+                fill
+                sizes="(min-width: 1024px) 40rem, 100vw"
+                className="object-cover"
+                priority
+              />
+            </button>
+          )}
+          {beforeAfter && (
+            <button
+              type="button"
+              onClick={() => setOpen(pairOffset)}
               aria-label="View before and after photos full size"
-              className="block w-full cursor-zoom-in text-left"
+              className={`block w-full cursor-zoom-in text-left ${lead ? "mt-3" : ""}`}
             >
               <BeforeAfterPhotos pair={beforeAfter} />
             </button>
-          ) : (
-            photos[0] && (
-              <button
-                type="button"
-                onClick={() => setOpen(0)}
-                aria-label="View photo full size"
-                className="relative block aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-2xl border border-navy/10 shadow-sm"
-              >
-                <Image
-                  src={photos[0].src}
-                  alt={photos[0].alt}
-                  fill
-                  sizes="(min-width: 1024px) 40rem, 100vw"
-                  className="object-cover"
-                  priority
-                />
-              </button>
-            )
           )}
         </div>
       </div>

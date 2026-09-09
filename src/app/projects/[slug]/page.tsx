@@ -46,7 +46,11 @@ export default async function ProjectPage({ params }: Props) {
       />
 
       <article className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
-        <ProjectShowcase beforeAfter={project.beforeAfter} photos={project.photos}>
+        <ProjectShowcase
+          mainPhoto={project.mainPhoto}
+          beforeAfter={project.beforeAfter}
+          photos={project.photos}
+        >
           {project.location && (
             <p className="text-sm font-bold uppercase tracking-widest text-brand">
               {project.location}

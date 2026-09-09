@@ -85,6 +85,13 @@ export const services: Service[] = [
         ],
       },
       {
+        // Bright finished interior in place of the masked-prep shot
+        // (client request, Sep 2026).
+        kind: "photo",
+        src: "/gallery/valley-rd-dining-kitchen.jpg",
+        alt: "Freshly repainted open-plan dining and kitchen with crisp white walls and timber floors",
+      },
+      {
         kind: "text",
         heading: "Painting While You’re Living at Home",
         body: [
@@ -92,6 +99,11 @@ export const services: Service[] = [
           "We maintain a clean, organised worksite from start to finish and use premium low-VOC paints whenever suitable, helping reduce odours and allowing rooms to be back in use sooner. At the end of each day, we leave the work area tidy and safe for your family.",
           "We also work on vacant homes, new builds, renovations, rental properties and homes being prepared for sale. Whether you have a strict deadline between tenancies or need your home ready before listing photos or handover, we’ll work with you to keep your project on schedule.",
         ],
+      },
+      {
+        kind: "photo",
+        src: "/gallery/te-arai-living.jpg",
+        alt: "Finished living area with freshly painted walls and detailed joinery at Te Arai",
       },
     ],
     sidebarPhoto: {

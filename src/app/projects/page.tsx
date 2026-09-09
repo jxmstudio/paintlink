@@ -30,7 +30,7 @@ export default function ProjectsPage() {
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-16 sm:px-6 lg:space-y-24 lg:py-20">
         {withPages.map((project, i) => {
-          const lead = project.beforeAfter?.after ?? project.photos[0];
+          const lead = project.mainPhoto ?? project.beforeAfter?.after ?? project.photos[0];
           const flip = i % 2 === 1;
           return (
             <Reveal key={project.slug}>
