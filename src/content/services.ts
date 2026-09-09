@@ -85,11 +85,11 @@ export const services: Service[] = [
         ],
       },
       {
-        // Bright finished interior in place of the masked-prep shot
-        // (client request, Sep 2026).
+        // Shane's "New interior page photos 2" (Dropbox New Updates, Sep 2026),
+        // in place of the masked-prep shot.
         kind: "photo",
-        src: "/gallery/valley-rd-dining-kitchen.jpg",
-        alt: "Freshly repainted open-plan dining and kitchen with crisp white walls and timber floors",
+        src: "/gallery/valley-rd-hallway.jpg",
+        alt: "Freshly painted hallway through white glazed french doors, with amber transom windows above",
       },
       {
         kind: "text",
@@ -244,6 +244,12 @@ export const services: Service[] = [
         kind: "photo",
         src: "/gallery/exterior-job-2.jpg",
         alt: "Two-storey board-and-batten home repainted in grey with red window trims and garage door",
+      },
+      {
+        // Shane's "New exterior page photo" (Dropbox New Updates, Sep 2026).
+        kind: "photo",
+        src: "/gallery/exterior-dark-house.jpg",
+        alt: "New-build home finished in dark stained timber over dark brick, with a fresh grey garage door",
       },
     ],
     // "What's included" box removed at client's request (Aug 2026).
