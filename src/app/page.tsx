@@ -54,81 +54,109 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero — Valley Rd courtyard photo behind the H1, per Shane's mockup (Sep 2026) */}
-      <section className="relative overflow-hidden border-b border-navy/10 bg-white">
-        <Image
-          src="/gallery/valley-rd-courtyard.jpg"
-          alt=""
-          aria-hidden="true"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        {/* Gradient stays soft so the photo reads in full colour (client request, Sep 2026). */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-navy-dark/75 via-navy-dark/45 to-navy-dark/15"
-        />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-24">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-white/90">
-              West &amp; Central Auckland Painters
-            </p>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Trusted Auckland Painters for Homes &amp; Businesses
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/90">
-              Looking for reliable Auckland painters who deliver quality workmanship that
-              lasts? PaintLink provides professional{" "}
-              <strong className="font-bold text-white">
-                interior painting, exterior painting, roof painting, commercial painting, and
-                villa restoration
-              </strong>{" "}
-              throughout West and Central Auckland.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/contact"
-                className="rounded-lg bg-brand px-7 py-4 text-center text-base font-bold text-white shadow-md transition-colors hover:bg-brand-dark"
-              >
-                Get a Free Quote
-              </Link>
-              <a
-                href={site.phoneHref}
-                className="flex items-center justify-center gap-2 rounded-lg border border-white/40 px-7 py-4 text-base font-bold text-white transition-colors hover:border-white hover:bg-white/10"
-              >
-                <PhoneIcon className="h-5 w-5" />
-                {site.phone}
-              </a>
+      {/* Hero — Valley Rd courtyard photo behind the H1, per Shane's mockup (Sep 2026).
+          On phones the photo sits behind the text and buttons only, kept short so the
+          whole house stays visible (client revision, Sep 2026); the awards carousel
+          moves below it. On desktop the photo spans the full hero as before. */}
+      <section className="border-b border-navy/10 bg-white">
+        <div className="relative overflow-hidden">
+          <Image
+            src="/gallery/valley-rd-courtyard.jpg"
+            alt=""
+            aria-hidden="true"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[38%_45%] lg:object-center"
+          />
+          {/* Gradient stays soft so the photo reads in full colour (client request, Sep 2026). */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-r from-navy-dark/75 via-navy-dark/45 to-navy-dark/15"
+          />
+          <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-10 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-24">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-widest text-white/90">
+                West &amp; Central Auckland Painters
+              </p>
+              <h1 className="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Trusted Auckland Painters for Homes &amp; Businesses
+              </h1>
+              <p className="mt-4 max-w-xl leading-relaxed text-white/90 sm:mt-5 sm:text-lg">
+                Looking for reliable Auckland painters who deliver quality workmanship that
+                lasts? PaintLink provides professional{" "}
+                <strong className="font-bold text-white">
+                  interior painting, exterior painting, roof painting, commercial painting,
+                  and villa restoration
+                </strong>{" "}
+                throughout West and Central Auckland.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
+                <Link
+                  href="/contact"
+                  className="rounded-lg bg-brand px-7 py-4 text-center text-base font-bold text-white shadow-md transition-colors hover:bg-brand-dark"
+                >
+                  Get a Free Quote
+                </Link>
+                <a
+                  href={site.phoneHref}
+                  className="flex items-center justify-center gap-2 rounded-lg border border-white/40 px-7 py-4 text-base font-bold text-white transition-colors hover:border-white hover:bg-white/10"
+                >
+                  <PhoneIcon className="h-5 w-5" />
+                  {site.phone}
+                </a>
+              </div>
+            </div>
+
+            <div className="relative hidden w-full lg:block">
+              <HeroCarousel slides={heroSlides} />
             </div>
           </div>
+        </div>
 
-          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <HeroCarousel slides={heroSlides} />
-          </div>
+        {/* Awards carousel — below the photo on phones, over it on desktop */}
+        <div className="mx-auto w-full max-w-md px-4 py-8 sm:px-6 lg:hidden">
+          <HeroCarousel slides={heroSlides} />
         </div>
       </section>
 
       {/* Services */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-        {/* Copy supplied by Shane (Dropbox Main Page folder, Sep 2026). */}
+        {/* Copy supplied by Shane (Dropbox New Updates folder, Sep 2026), in full. */}
         <div className="max-w-2xl">
           <h2 className="text-3xl font-extrabold tracking-tight text-navy">
-            Award-winning painters you can rely on.
+            Quality Painters You Can Rely On
           </h2>
           <p className="mt-3 text-navy-dark/70">
-            Our award-winning team provides professional interior, exterior and roof
-            painting, with thorough preparation and attention to detail from start to
-            finish.
+            We provide professional{" "}
+            <strong className="font-bold text-navy">
+              interior, exterior and roof painting
+            </strong>{" "}
+            for everything from character homes and renovations through to high-end
+            architectural new builds. Our work has seen us involved in a number of{" "}
+            <strong className="font-bold text-navy">
+              award-winning homes and building projects
+            </strong>
+            , where the quality of the painting and finishing needs to match the standard
+            of the construction.
+          </p>
+          <p className="mt-3 text-navy-dark/70">
+            Every project receives the same focus on{" "}
+            <strong className="font-bold text-navy">
+              thorough preparation, correct coating systems and attention to detail
+            </strong>
+            . Whether we&rsquo;re restoring an older weatherboard home, completing a full
+            interior repaint or working alongside builders on a detailed architectural
+            project, our aim is to deliver a finish that looks right and is made to last.
           </p>
           <p className="mt-3 text-navy-dark/70">
             <strong className="font-bold text-navy">
-              Every photo on our website is from a project we&rsquo;ve completed &mdash; we
-              don&rsquo;t use stock photography.
+              Every photo you see on our website is from a project we&rsquo;ve actually
+              completed &mdash; we don&rsquo;t use stock photography.
             </strong>{" "}
-            What you see is our own work and a genuine representation of the standard we
-            deliver.
+            From everyday residential repaints to some of Auckland&rsquo;s standout homes,
+            the work shown throughout our website is a genuine representation of the
+            projects we undertake and the standard of finish we deliver.
           </p>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

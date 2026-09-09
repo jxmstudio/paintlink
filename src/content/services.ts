@@ -85,11 +85,6 @@ export const services: Service[] = [
         ],
       },
       {
-        kind: "photo",
-        src: "/gallery/interior-prep-masked.jpg",
-        alt: "Interior fully masked and drop-sheeted, prepped and ready for painting",
-      },
-      {
         kind: "text",
         heading: "Painting While You’re Living at Home",
         body: [
